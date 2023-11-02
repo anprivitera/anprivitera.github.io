@@ -1,0 +1,31 @@
+{% comment %} https://digitaldrummerj.me/blogging-on-github-part-13-creating-an-article-series/ {% endcomment %}
+{% if page.series %}
+    {% assign count = '0' %}
+    {% assign idx = '0' %}
+    {% for post in site.posts reversed %}
+        {% if post.series == page.series %}
+            {% capture count %} {{ count | plus: '1' }} {% endcapture %}
+                {% if post.url == page.url %}
+                    {% capture idx %} {{ count }} {% endcapture %}
+                {% endif %}
+        {% endif %}
+    {% endfor %}
+<div class="panel seriesNote">
+    This post is <strong>part {{ idx }}</strong> of <strong>{{ count }}</strong> in the <strong>{{ page.series }}</strong> series.
+<ol>
+    {% assign count = '0' %}
+    {% for post in site.posts reversed %}
+        {% if post.series == page.series %}
+            {% capture count %}{{ count | plus: '1' }}{% endcapture %}
+            <li>{% if page.url == post.url %}
+                {{ page.title }}
+            {% else %}
+                <a href = "{{ post.url }}">{{ post.title }}</a>
+            {% endif %}
+            </li>
+        {% endif %} 
+    {% endfor %}
+</ol>
+</div>
+{% endif %}
+

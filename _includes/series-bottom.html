@@ -1,0 +1,20 @@
+
+{% if page.series %}
+<div class="panel seriesNote">
+    <p>Check out the rest of the <strong>{{ page.series }}</strong> series</p>
+<ol>
+    {% assign count = '0' %}
+    {% for post in site.posts reversed %}
+        {% if post.series == page.series %}
+            {% capture count %}{{ count | plus: '1' }}{% endcapture %}
+            <li>{% if page.url == post.url %}
+                {{ page.title }}
+            {% else %}
+                <a href = "{{ post.url }}">{{ post.title }}</a>
+            {% endif %}
+            </li>
+        {% endif %} 
+    {% endfor %}
+</ol>
+</div>
+{% endif %}

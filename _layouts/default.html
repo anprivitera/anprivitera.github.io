@@ -1,0 +1,58 @@
+---
+# layout: compress
+---
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <div class="blog-headline">{{site.title}}</div>
+    <div class="blog-description">{{site.description}}</div>
+
+    {% include navigation.html %}
+
+    {% seo %}
+
+    {% include mathjax.html %}
+
+    {% include analytics.html %}
+
+    {% include cookiesnotice.html %}
+
+    <!-- Load fontawesome here for faster loadtimes: https://stackoverflow.com/a/35880730/9523246 -->
+    <script
+        type="text/javascript"> (function () { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.11.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+</head>
+
+<body>
+    <main>
+        <article>
+            {{ content }}
+        </article>
+    </main>
+
+    <footer>
+
+        {% include social-footer.html %}
+
+        <div class="copy">
+        Powered by <a target="_blank" href="https://jekyllrb.com/">Jekyll</a>, <a target="_blank"
+                href="https://github.io">GitHub Pages</a> and a modified version of
+            <a target="_blank" href="https://github.com/jitinnair1/gradfolio/">Gradfolio</a><br/> 
+        Last updated on {{ site.time | date: '%Y-%m-%d' }}<br/>
+        <em>L'avenir est aux curieux de profession (Jules et Jim)</em>
+    </div>
+
+
+
+
+    </footer>
+
+
+
+</body>
+
+</html>

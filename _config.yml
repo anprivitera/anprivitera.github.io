@@ -1,0 +1,61 @@
+### your site title here
+
+title: Andrea Privitera
+description: 
+
+baseurl: #name of GitHub repository
+url: "https://anprivitera.com" #custom url to be used instead of GitHub repository
+email: "andrea.privitera@mailbox.org"
+
+# Social media links in footer
+linkedin: "andreaprivitera"
+stackoverflow: 
+github: "anprivitera"
+itchio: "anprivitera"
+
+
+# Markdown
+highlighter: rouge
+markdown: kramdown
+
+# optimization -> compress.html
+compress_html:
+  clippings: [html,div, p, ul, td, h1, h2, h3, h4,link, meta, footer, nav, img, header, hr, br, head, style, li, ul, ol, time, main, script, title]
+  comments: ["<!-- ", " -->"]
+  endings: [all]
+  ignore:
+    envs: [local]
+  blanklines: false
+  profile: false
+  startings: []
+
+#collection
+collections:
+  coding:
+    output: true
+    permalink: /coding/:name/
+  learning:
+    output: true
+    permalink: /learning/:name/
+  tags:
+    output: true
+    permalink: /tags/:path
+
+sass:
+  sass_dir: /assets/css/_sass
+  style: compressed
+
+include:
+  - _pages
+
+exclude:
+  - README.md
+  - LICENSE.md
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-email-protect
+  - jekyll-target-blank
+  - jekyll-feed
+  - jemoji
+  - jekyll-sitemap
