@@ -1,7 +1,7 @@
 ---
 title: Programming Projects
 layout: default
-permalink: /programming
+permalink: /programming/
 published: true
 ---
 
