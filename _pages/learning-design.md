@@ -1,7 +1,7 @@
 ---
 title: Learning Projects
 layout: default
-permalink: /learning/
+permalink: /learning-design/
 published: true
 ---
 
