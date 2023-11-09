@@ -4,7 +4,7 @@ title: "Assignment Destructuring in JavaScript"
 date: 2023-11-02 14:21 -0700
 tags: programming
 description: "A quick guide for array and object destructuring in JavaScript"
-series: "Learning JavaScript"
+# series: "Learning JavaScript"
 ---
 
 In JavaScript, assignment destructuring is a way to assign one or more elements of an existing array or an object (positioned on the right) into one or more variables (positioned on the left).
