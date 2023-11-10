@@ -2,7 +2,7 @@
 layout: post
 title: "Assignment Destructuring in JavaScript"
 date: 2023-11-02 14:21 -0700
-tags: programming
+tags: [programming, javascript]
 description: "A quick guide for array and object destructuring in JavaScript"
 # series: "Learning JavaScript"
 ---
