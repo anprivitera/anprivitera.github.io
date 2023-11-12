@@ -9,6 +9,7 @@ group :jekyll_plugins do
   gem 'jekyll-feed'
   gem 'jemoji'
   gem 'jekyll-sitemap'
+  gem 'jekyll-spaceship'
 end
 
 gem "webrick", "~> 1.7"
