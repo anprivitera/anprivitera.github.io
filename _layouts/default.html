@@ -12,6 +12,10 @@
     <div class="blog-headline">{{site.title}}</div>
     <div class="blog-description">{{site.description}}</div>
 
+    {% if page.mermaid %}
+        {% include mermaid.html %}
+    {% endif %}
+
     {% include navigation.html %}
 
     {% seo %}
@@ -39,12 +43,12 @@
         {% include social-footer.html %}
 
         <div class="copy">
-        Powered by <a target="_blank" href="https://jekyllrb.com/">Jekyll</a>, <a target="_blank"
+            Powered by <a target="_blank" href="https://jekyllrb.com/">Jekyll</a>, <a target="_blank"
                 href="https://github.io">GitHub Pages</a> and a modified version of
-            <a target="_blank" href="https://github.com/jitinnair1/gradfolio/">Gradfolio</a><br/> 
-        Last updated on {{ site.time | date: '%Y-%m-%d' }}<br/>
-        <em>L'avenir est aux curieux de profession (Jules et Jim)</em>
-    </div>
+            <a target="_blank" href="https://github.com/jitinnair1/gradfolio/">Gradfolio</a><br />
+            Last updated on {{ site.time | date: '%Y-%m-%d' }}<br />
+            <em>L'avenir est aux curieux de profession (Jules et Jim)</em>
+        </div>
 
 
 
