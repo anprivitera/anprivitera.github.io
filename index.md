@@ -15,9 +15,9 @@ My current programming focus is on [JavaScript](/tags/javascript.html), React an
 
 My background is in language teaching. [I've authored Italian language digital textbooks and online courses](/learning/) that encourage learners to develop their own curiosity and agency. 
 
-<!-- Add tags when there are more posts about these topy -->
+<!-- Add tags when there are more posts about these topics -->
 
-I am also an avid gamer. I enjoy board games, videogames and, above all, tabletop role-playing games (TTRPGs). 
+I am also interested in gaming of all kinds. I enjoy board games, videogames and, above all, tabletop role-playing games (TTRPGs). 
 
 My other passions are media (film, TV, sci-fi/fantasy fiction), productivity and personal knowledge management.
 
