@@ -4,7 +4,7 @@ title: "Learning NextJS: Getting Started, Style and Static Assets"
 date: 2023-11-11 18:24 -0700
 tags: [programming, nextjs, web development, learning design]
 description: "Learning the basics of NextJS"
-# series: "Learning NextJS"
+series: "Learning NextJS"
 mermaid: true
 ---
 
