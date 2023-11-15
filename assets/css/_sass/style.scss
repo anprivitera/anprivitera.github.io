@@ -234,6 +234,10 @@ blockquote {
   -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.05);
   box-shadow: 0 1px 1px rgba(0,0,0,0.05);
   max-width: 55%;
+  @media (prefers-color-scheme: dark) {
+    background-color: $body-bg-dark;
+    color: $text-color-dark;
+  }
 }
 
 .panel-heading {
