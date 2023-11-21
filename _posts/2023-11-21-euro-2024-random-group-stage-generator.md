@@ -12,6 +12,8 @@ The [Euro 2024 qualifying](https://en.wikipedia.org/wiki/UEFA_Euro_2024_qualifyi
 
 Regardless of the generator result, it seems that Italy will have a hard time defending the title considering the competition... 🫠
 
+[You can find the JS code here](https://gist.github.com/anprivitera/31417c03567ed516985da4ab2bd644e4).
+
 *The information below is accurate as of Nov 21, 2023*
 
 <button id="generate">Generate</button>
