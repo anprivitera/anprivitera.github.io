@@ -13,9 +13,8 @@ function newDraw() {
         console.log();
     }
 
-    let remainingTeams = ['Finland', 'Ukraine', 'Iceland'];
-    let pathA = ['Poland', 'Wales', pickTeam(remainingTeams), 'Estonia'];
-    let pathB = ['Israel', 'Bosnia and Herzegovina', pickTeam(remainingTeams), pickTeam(remainingTeams)];
+    let pathA = ['Poland', 'Wales', 'Finland', 'Estonia'];
+    let pathB = ['Israel', 'Bosnia and Herzegovina', 'Ukraine', 'Iceland'];
     let pathC = ['Georgia', 'Greece', 'Kazakhstan', 'Luxembourg'];
 
     const pot1 = ['Portugal', 'France', 'Spain', 'Belgium', 'England']
