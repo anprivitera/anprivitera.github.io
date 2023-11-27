@@ -2,19 +2,20 @@
 # layout: compress
 ---
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <meta name="description" content="Welcome to the personal site of Andrea Privitera. I'm a Vancouver-based web developer skilled in JavaScript, React and NextJS. Here I share my expertise and opinions about Educational Technology (EdTech), Personal Knowledge Managment (PKMS), the Obsidian note-taking app, GTD (Getting Things Done) and TTRPGs (Tabletop Role-Playing Games). Come check out my blog posts and portfolio!">
+    <meta name="description"
+        content="Welcome to the personal site of Andrea Privitera. I'm a Vancouver-based web developer skilled in JavaScript, React and NextJS. Here I share my expertise and opinions about Educational Technology (EdTech), Personal Knowledge Managment (PKMS), the Obsidian note-taking app, GTD (Getting Things Done) and TTRPGs (Tabletop Role-Playing Games). Come check out my blog posts and portfolio!">
     <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
     <link rel="shortcut icon" href="/favicon.ico">
     <div class="blog-headline">{{site.title}}</div>
     <div class="blog-description">{{site.description}}</div>
 
     {% if page.mermaid %}
-        {% include mermaid.html %}
+    {% include mermaid.html %}
     {% endif %}
 
     {% include navigation.html %}
