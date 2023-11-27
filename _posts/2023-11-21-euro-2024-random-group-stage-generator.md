@@ -16,7 +16,7 @@ Regardless of the generator result, it seems that Italy will have a hard time de
 
 *The information below is accurate as of Nov 23, 2023*
 
-<button id="generate">Generate</button>
+<button class="simplebutton" id="generate">Generate</button>
 
 <h3>Group A</h3>
 <ol>
