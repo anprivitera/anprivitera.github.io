@@ -66,13 +66,18 @@ img {
 
 pre {
   border: 1px solid black;
-  padding:5px;
-  white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
-  white-space: -pre-wrap; /* Opera */
-  white-space: -o-pre-wrap; /* Opera */
-  white-space: pre-wrap; /* CSS3 – Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
-  word-wrap: break-word; /* IE 5.5+ */
-  
+  padding: 5px;
+  white-space: -moz-pre-wrap;
+  /* Mozilla, supported since 1999 */
+  white-space: -pre-wrap;
+  /* Opera */
+  white-space: -o-pre-wrap;
+  /* Opera */
+  white-space: pre-wrap;
+  /* CSS3 – Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
+  word-wrap: break-word;
+  /* IE 5.5+ */
+
 }
 
 blockquote {
@@ -206,14 +211,17 @@ blockquote {
   //   -webkit-transform 0.1s ease 0s,
   //   transform 0.1s ease 0s;
   background: $brand-color-light;
-  color: #222222;
-
+  color: $body-bg;
   @media (prefers-color-scheme: dark) {
     background: $brand-color-dark;
+    color: $body-bg-dark;
   }
 
   &:hover {
     background: $link-color;
+
+
+
   }
 }
 
