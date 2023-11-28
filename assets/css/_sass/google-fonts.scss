@@ -2,19 +2,17 @@
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 400;
-  src: local('Rubik'), local('Rubik-Regular'), url(/assets/fonts/Rubik-VariableFont_wght.ttf) format('ttf');
+  src: local('Rubik'), local('Rubik-Regular'), url('/assets/fonts/Rubik-VariableFont_wght.ttf') format('ttf');
 }
 
 @font-face {
   font-family: 'Fira Mono';
   font-style: normal;
   font-weight: 400;
-  src: local('Fira Mono'), local('FiraMono-Regular'), url(/assets/fonts/FiraMono-Regular.ttf) format('ttf');
+  src: local('Fira Mono'), local('FiraMono-Regular'), url('/assets/fonts/FiraMono-Regular.ttf') format('ttf');
 }
 
 @font-face {
   font-family: 'Karla';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Karla'), local('Karla-Regular'), url(/assets/fonts/Karla-VariableFont_wght.ttf) format('ttf');
+  src: local('Karla'), local('Karla-Regular'), url('/assets/fonts/Karla-VariableFont_wght.ttf') format('ttf');
 }
