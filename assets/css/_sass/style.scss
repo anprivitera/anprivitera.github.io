@@ -97,6 +97,12 @@ blockquote {
 }
 
 .blog-headline {
+  color: $brand-color-light;
+
+  @media (prefers-color-scheme: dark) {
+    color: $brand-color-dark;
+  }
+
   font-size: 1.3em;
 
   @include media-query($on-palm) {
@@ -212,6 +218,7 @@ blockquote {
   //   transform 0.1s ease 0s;
   background: $brand-color-light;
   color: $body-bg;
+
   @media (prefers-color-scheme: dark) {
     background: $brand-color-dark;
     color: $body-bg-dark;
