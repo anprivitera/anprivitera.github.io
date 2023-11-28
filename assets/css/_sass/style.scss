@@ -100,14 +100,7 @@ blockquote {
 }
 
 strong, b {
-  font-weight: bold;
-
-  color: $brand-color-light;
-  
-  @media (prefers-color-scheme: dark) {
-    color: $brand-color-dark;
-
-  }
+  font-weight: bolder;
 }
 
   .blog-headline {
