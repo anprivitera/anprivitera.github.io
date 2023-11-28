@@ -32,48 +32,26 @@ h6 {
   line-height: 1.8;
   margin: 0;
   text-transform: inherit;
+  color: $brand-color-light;
+
+  @media (prefers-color-scheme: dark) {
+    color: $brand-color-dark;
+  }
 }
 
 a {
-  color: $brand-color;
+  color: $link-color;
+  font-weight: bolder;
   text-decoration: none;
 
+
   &:hover {
-    color: $text-color;
+    color: $brand-color-light;
 
     @media (prefers-color-scheme: dark) {
-      color: $text-color-dark;
+      color: $brand-color-dark;
     }
 
-  }
-}
-
-
-
-p a {
-  color: $text-color;
-  text-decoration: none;
-  background: -webkit-linear-gradient(transparent 90%, lighten($brand-color, 10%) 10%);
-  background: -moz-linear-gradient(transparent 90%, lighten($brand-color, 10%) 10%);
-  background: linear-gradient(transparent 90%, lighten($brand-color, 10%) 10%);
-
-  -webkit-box-shadow: inset 0 0 0 0 lighten($brand-color, 10%);
-  box-shadow: inset 0 0 0 0 lighten($brand-color, 10%);
-
-
-  -webkit-transition: box-shadow ease 1s;
-  -moz-transition: box-shadow ease 1s;
-  transition: box-shadow ease 1s;
-
-  &:hover {
-    color: lighten($background-color, 50%);
-    -webkit-box-shadow: inset 0 -100px 0 0 lighten($brand-color, 10%);
-    box-shadow: inset 0 -100px 0 0 lighten($brand-color, 10%);
-
-  }
-
-  @media (prefers-color-scheme: dark) {
-    color: $text-color-dark;
   }
 }
 
@@ -86,30 +64,29 @@ img {
   max-width: 100%;
 }
 
-pre,
-code {
-  overflow: auto;
-  font-size: 0.7*$base-font-size;
-  border-radius: 3px;
-  border: 1px solid $brand-color;
-
-  >code {
-    border: none;
-  }
-}
-
 pre {
-  padding: 1em;
-}
-
-code {
-  padding: 0.1em;
+  border: 1px solid black;
+  padding:5px;
+  white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
+  white-space: -pre-wrap; /* Opera */
+  white-space: -o-pre-wrap; /* Opera */
+  white-space: pre-wrap; /* CSS3 – Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
+  word-wrap: break-word; /* IE 5.5+ */
+  
 }
 
 blockquote {
-  border-left: 2px solid $brand-color;
+  border-left: 2px solid $brand-color-light;
+
+  @media (prefers-color-scheme: dark) {
+    border-left: 2px solid $brand-color-dark;
+  }
+
   padding-left: 1em;
-  font-family: Georgia, Times, Times New Roman, serif;
+  font-family: Georgia,
+  Times,
+  Times New Roman,
+  serif;
   font-size: 0.9*$base-font-size;
   font-style: italic;
 }
@@ -223,14 +200,20 @@ blockquote {
   font-weight: 600;
   border-radius: 8px;
   padding: 13px 23px;
-  border: 1px solid #222222;
-  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
-  background: #fff;
+  border: 1px solid;
+  // transition: box-shadow 0.2s ease 0s,
+  //   -ms-transform 0.1s ease 0s,
+  //   -webkit-transform 0.1s ease 0s,
+  //   transform 0.1s ease 0s;
+  background: $brand-color-light;
   color: #222222;
 
-  :hover {
-    border-color: #000000;
-    background: #f7f7f7;
+  @media (prefers-color-scheme: dark) {
+    background: $brand-color-dark;
+  }
+
+  &:hover {
+    background: $link-color;
   }
 }
 
