@@ -12,7 +12,10 @@ footer {
 /* Footer copyrights */
 .copy {
     margin: 2%;
-    color: #aaa;
+    color: $text-color;
+    @media (prefers-color-scheme: dark) {
+        color: $text-color-dark;
+    }
     text-align: center;
     font-size: small;
 }
