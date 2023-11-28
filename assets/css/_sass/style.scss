@@ -349,7 +349,7 @@ strong, b {
 
 
   ul.posts div {
-    color: $text-color;
+    color: $brand-color-light;
     font-size: larger;
     margin-top: -0.5em;
 
@@ -359,14 +359,21 @@ strong, b {
   }
 
   ul.posts small {
-    color: $text-color;
+    color: $brand-color-light;
     font-size: small;
 
     @media (prefers-color-scheme: dark) {
-      color: $text-color-dark;
+      color: $brand-color-dark;
     }
   }
 
   li.post-item {
     margin-bottom: 1.5em;
+  }
+
+  .meta {
+    color: $brand-color-light;
+    @media (prefers-color-scheme: dark) {
+      color: $brand-color-dark;
+    }
   }
