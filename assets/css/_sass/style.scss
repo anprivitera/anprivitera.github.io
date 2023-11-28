@@ -65,6 +65,17 @@ figure {
 
 img {
   max-width: 100%;
+  border-color: $brand-color-light;
+  @media (prefers-color-scheme: dark) {
+    border-color: $brand-color-dark;
+  }
+  border-style: solid;
+  border-width: 0.2rem;
+
+}
+
+img.emoji {
+  border: none;
 }
 
 pre {
