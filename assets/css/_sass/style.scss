@@ -43,7 +43,9 @@ a {
   color: $link-color;
   font-weight: bolder;
   text-decoration: none;
-
+  @media (prefers-color-scheme: dark) {
+    color: $link-color-dark;
+  }
 
   &:hover {
     color: $brand-color-light;
@@ -226,9 +228,9 @@ blockquote {
 
   &:hover {
     background: $link-color;
-
-
-
+    @media (prefers-color-scheme: dark) {
+      background: $link-color-dark;
+    }
   }
 }
 
