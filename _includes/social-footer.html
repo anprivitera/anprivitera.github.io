@@ -1,54 +1,44 @@
 <div class="rounded-social-buttons">
 
-<a title="Subscribe to the RSS feed"
-class="social-button feed" itemprop="feed"
-href="/feed.xml" target="_blank">
-<i class="fa fa-rss"></i>
-</a>
+    <a title="Subscribe to the RSS feed" class="social-button feed" itemprop="feed" href="/feed.xml" target="_blank">
+        <i class="fa fa-rss"></i>
+    </a>
 
 
-{%- if site.email -%}
-<a title="{{ _locale_string_email }}"
-class="social-button email" itemprop="email"
-href="mailto:{{ site.email | encode_email }}" target="_blank">
-<i class="far fa-envelope"></i>
-</a>
-{%- endif -%}
+    {%- if site.email -%}
+    <a title="{{ _locale_string_email }}" class="social-button email" itemprop="email"
+        href="mailto:{{ site.email | encode_email }}" target="_blank" alt="email">
+        <i class="far fa-envelope"></i>
+    </a>
+    {%- endif -%}
 
-{%- if site.linkedin -%}
-<a title="{{ _locale_string_follow | replace: '[NAME]', 'LinkedIn' }}"
-class="social-button linkedin"
-href="https://www.linkedin.com/in/{{ site.linkedin }}" itemprop="sameAs"
-target="_blank">
-<i class="fab fa-linkedin"></i>
-</a>
-{%- endif -%}
+    {%- if site.linkedin -%}
+    <a title="{{ _locale_string_follow | replace: '[NAME]', 'LinkedIn' }}" class="social-button linkedin"
+        href="https://www.linkedin.com/in/{{ site.linkedin }}" itemprop="sameAs" target="_blank" alt="linkedin">
+        <i class="fab fa-linkedin"></i>
+    </a>
+    {%- endif -%}
 
-{%- if site.github -%}
-<a title="{{ _locale_string_follow | replace: '[NAME]', 'GitHub' }}"
-class="social-button github"
-href="https://www.github.com/{{ site.github }}" itemprop="sameAs"
-target="_blank">
-<i class="fab fa-github"></i>
-</a>
-{%- endif -%}
+    {%- if site.github -%}
+    <a title="{{ _locale_string_follow | replace: '[NAME]', 'GitHub' }}" class="social-button github"
+        href="https://www.github.com/{{ site.github }}" itemprop="sameAs" target="_blank" alt="github">
+        <i class="fab fa-github"></i>
+    </a>
+    {%- endif -%}
 
-{%- if site.itchio -%}
-<a title="{{ _locale_string_follow | replace: '[NAME]', 'itch.io'}}"
-class="social-button itchio" itemprop="itchio"
-href="https://{{ site.itchio }}.itch.io" itemprop="sameAs"
-target="_blank">
-<i class="fab fa-itch-io"></i>
-</a>
-{%- endif -%}
+    {%- if site.itchio -%}
+    <a title="{{ _locale_string_follow | replace: '[NAME]', 'itch.io'}}" class="social-button itchio" itemprop="itchio"
+        href="https://{{ site.itchio }}.itch.io" itemprop="sameAs" target="_blank" alt="itchio">
+        <i class="fab fa-itch-io"></i>
+    </a>
+    {%- endif -%}
 
-{%- if site.stackoverflow -%}
-<a title="{{ _locale_string_follow | replace: '[NAME]', 'Stackoverflow' }}"
-class="social-button stackoverflow" itemprop="sameAs"
-href="https://stackoverflow.com/users/{{ site.stackoverflow }}"
-target="_blank">
-<i class="fab fa-brands fa-stack-overflow"></i>
-</a>
-{%- endif -%}
+    {%- if site.stackoverflow -%}
+    <a title="{{ _locale_string_follow | replace: '[NAME]', 'Stackoverflow' }}" class="social-button stackoverflow"
+        itemprop="sameAs" href="https://stackoverflow.com/users/{{ site.stackoverflow }}" target="_blank"
+        alt="stackoverflow">
+        <i class="fab fa-brands fa-stack-overflow"></i>
+    </a>
+    {%- endif -%}
 
 </div>
