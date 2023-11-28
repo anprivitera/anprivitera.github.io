@@ -112,6 +112,8 @@ strong, b {
 
   .blog-headline {
     color: $brand-color-light;
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
 
     @media (prefers-color-scheme: dark) {
       color: $brand-color-dark;
@@ -202,6 +204,7 @@ strong, b {
 
   /* Horizontal scrolling navbar. From: https://iamsteve.me/blog/horizontal-scrolling-responsive-menu */
   .scroll {
+    font-family: 'Rubik', sans-serif;
     white-space: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
