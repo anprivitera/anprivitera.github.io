@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="description"
+        content="Welcome to the personal site of Andrea Privitera. I'm a Vancouver-based web developer skilled in JavaScript, React and NextJS. Here I share my expertise and opinions about Educational Technology (EdTech), Personal Knowledge Managment (PKMS), the Obsidian note-taking app, GTD (Getting Things Done) and TTRPGs (Tabletop Role-Playing Games). Come check out my blog posts and portfolio!">
+    <meta name="google-site-verification" content="w8tlFn4jppLghGPpUnqdaiS-_fvgOyY2oUulAp549dE" />
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Assignment Destructuring in JavaScript | Andrea Privitera</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Assignment Destructuring in JavaScript" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A quick guide for array and object destructuring in JavaScript" />
+<meta property="og:description" content="A quick guide for array and object destructuring in JavaScript" />
+<link rel="canonical" href="https://www.anprivitera.com/2023/11/02/assignment-destructuring-in-javascript.html" />
+<meta property="og:url" content="https://www.anprivitera.com/2023/11/02/assignment-destructuring-in-javascript.html" />
+<meta property="og:site_name" content="Andrea Privitera" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-11-02T21:21:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Assignment Destructuring in JavaScript" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-11-02T21:21:00+00:00","datePublished":"2023-11-02T21:21:00+00:00","description":"A quick guide for array and object destructuring in JavaScript","headline":"Assignment Destructuring in JavaScript","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.anprivitera.com/2023/11/02/assignment-destructuring-in-javascript.html"},"url":"https://www.anprivitera.com/2023/11/02/assignment-destructuring-in-javascript.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- MathJax -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+     processEscapes: true
+    }
+  });
+</script>
+
+
+    <!-- Counter Analytics Tracking code -->
+<script src="https://cdn.counter.dev/script.js" data-id="23dcad9e-9b5a-4f80-bd2d-744bfcea43d5" data-utcoffset="0"></script>
+
+    <!-- CookiesNotice -->
+<!-- <script type="text/javascript" src="https://cookiesnotice.com/cookie.js?skin=cookielaw3&amp;position=bottom_right&amp;box_radius=0"></script> -->
+<!-- End CookiesNotice -->
+
+    <!-- Load fontawesome here for faster loadtimes: https://stackoverflow.com/a/35880730/9523246 -->
+    <script
+        type="text/javascript"> (function () { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v6.0.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+</head>
+
+<body>
+    <div class="blog-headline">Andrea Privitera</div>
+    <nav class="navbar">
+<a href="/"><i class="fa-solid fa-user"></i> About</a>
+        
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+                        <a href="https://www.anprivitera.com/webdev/"><i class="fa-solid fa-code"></i> WebDev</a>
+                
+        
+                
+                        <a href="https://www.anprivitera.com/education/"><i class="fas fa-graduation-cap"></i> Edu/EdTech</a>
+                
+        
+                
+                        <a href="https://www.anprivitera.com/blog/"><i class="fa-solid fa-pen"></i> Blog</a>
+                
+        
+</nav>
+    <main>
+        <article>
+            <h1 class="post-headline">Assignment Destructuring in JavaScript</h1>
+<h2 class="post-description">A quick guide for array and object destructuring in JavaScript</h2>
+<p class="meta"><small><i class="fa fa-calendar"></i> Nov 02, 2023 |  <i class="fa fa-tag"></i> <a href="/tags/programming.html">programming</a>  <i class="fa fa-tag"></i> <a href="/tags/javascript.html">javascript</a> </small></p>
+
+
+
+
+
+
+
+<p>In JavaScript, assignment destructuring is a way to assign one or more elements of an existing array or an object (positioned on the right) into one or more variables (positioned on the left).</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="c1">// 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="c1">// 2</span>
+</code></pre></div></div>
+
+<p>Let’s start by focusing on array destructuring. Let’s use as an example a simple array containing numbers from 1 to 10.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="skipping-elements">Skipping Elements</h2>
+
+<p>By adding an empty space between commas, you skip one position in the array.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="kd">const</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="p">,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="nx">array</span> <span class="c1">// a == 1, b == 3</span>
+</code></pre></div></div>
+
+<p>Add more commas to skip more items</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="kd">const</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="p">,</span> <span class="p">,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="nx">array</span>
+<span class="c1">// a == 1</span>
+<span class="c1">// b == 4</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="kd">const</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="p">,</span> <span class="p">,</span> <span class="p">,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="nx">array</span>
+<span class="c1">// a == 1</span>
+<span class="c1">// b == 5</span>
+</code></pre></div></div>
+
+<h2 id="assigning-more-elements-than-existing-ones">Assigning More Elements than Existing Ones</h2>
+
+<p>If you assign more elements than the number of elements present in the source, the remaining element are <code class="language-plaintext highlighter-rouge">undefined</code>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+<span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">,</span> <span class="nx">e</span><span class="p">,</span> <span class="nx">f</span><span class="p">]</span> <span class="o">=</span> <span class="nx">array</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span> <span class="c1">// undefined</span>
+</code></pre></div></div>
+
+<h2 id="the-rest-property">The Rest Property</h2>
+
+<p>To transfer more than one item in an array into a single variable, you can use <strong>the rest property</strong> (<code class="language-plaintext highlighter-rouge">...</code>).</p>
+
+<p>The rest property enumerates all of the items in an array and puts them in a separate array.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="kd">const</span> <span class="p">[...</span><span class="nx">a</span><span class="p">]</span> <span class="o">=</span> <span class="nx">array</span><span class="p">;</span>
+<span class="c1">// a == [1, 2, 3, 4,  5, 6, 7, 8, 9, 10]</span>
+</code></pre></div></div>
+
+<p>You can combine the rest property together with the commas. You can use it to assign individual items from an array.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="kd">const</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span><span class="p">]</span> <span class="o">=</span> <span class="nx">array</span>
+<span class="c1">// a == 1</span>
+<span class="c1">// b == 2</span>
+<span class="c1">// rest == [3, 4, 5, 6, 7, 8, 9, 10]</span>
+</code></pre></div></div>
+
+<p>Commas also allow you to skip items in an array, affecting the items the rest property interacts with.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="kd">const</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span><span class="p">]</span> <span class="o">=</span> <span class="nx">array</span>
+<span class="c1">// a == 1</span>
+<span class="c1">// b == 3</span>
+<span class="c1">// rest == [3, 4, 5, 6, 7, 8, 9, 10] </span>
+</code></pre></div></div>
+
+<p>If you want to use the rest property to destructure individual items instead of positioning them in an array, just add square brackets.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="p">...[</span><span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">array</span>
+<span class="c1">// a == 1</span>
+<span class="c1">// b == 2</span>
+<span class="c1">// c == 3</span>
+<span class="c1">// d == 4</span>
+</code></pre></div></div>
+
+<p>You can also use the rest property to access arrays properties, although the properties are from the already modified array, not the original one.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="p">...{</span> <span class="nx">length</span> <span class="p">}]</span> <span class="o">=</span> <span class="nx">array</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">length</span><span class="p">)</span> <span class="c1">// 8</span>
+</code></pre></div></div>
+
+<h3 id="position-of-rest-property">Position of Rest Property</h3>
+
+<p>Remember that the rest property always needs to be at the end of the destructured array.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="kd">const</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="p">...</span><span class="nx">b</span> <span class="p">,</span> <span class="nx">c</span><span class="p">]</span> <span class="o">=</span> <span class="nx">array</span><span class="p">;</span> <span class="c1">//Uncaught SyntaxError: Rest element must be last element</span>
+</code></pre></div></div>
+
+<p>If you use the Rest property in a nested way, the first nested property still needs to be the last element of the object.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="kd">let</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="p">...[</span><span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">,</span> <span class="p">,</span> <span class="p">...[</span><span class="nx">e</span><span class="p">]]]</span> <span class="o">=</span> <span class="nx">array</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="c1">// 1 2 3 4 6</span>
+</code></pre></div></div>
+
+<h2 id="object-destructuring">Object Destructuring</h2>
+
+<p>So far, we only saw examples of array destructuring in arrays, but you can use assignment destructuring also for objects.</p>
+
+<p>Let’s see how assignment destructuring works in JavaScript by looking at this sample object.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="na">surname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Smith</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="parenthesis-wrapping">Parenthesis Wrapping</h3>
+
+<p>When attempting to do object destructuring, you’ll notice that a SyntaxError in the browser console:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">firstName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="na">lastName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Smith</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">25</span><span class="p">};</span>
+<span class="kd">const</span> <span class="p">{</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">;</span> <span class="c1">// SyntaxError: Unexpected token '='</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>To avoid this error, wrap the entire object destructuring assignment in parentheses.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">firstName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="na">lastName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Smith</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">25</span><span class="p">};</span>
+<span class="nf">const </span><span class="p">({</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">);</span> 
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">);</span> <span class="c1">// "John Smith"</span>
+</code></pre></div></div>
+
+<h3 id="key-assignment">Key Assignment</h3>
+
+<p>If I try to assign the information associated to the keys <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">surname</code>, <code class="language-plaintext highlighter-rouge">age</code> to variables named in a different way (for example, <code class="language-plaintext highlighter-rouge">a</code>, <code class="language-plaintext highlighter-rouge">b</code>, <code class="language-plaintext highlighter-rouge">c</code>) these variables return undefined as a value.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="na">surname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Smith</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+<span class="nf">const </span><span class="p">({</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="c1">// undefined</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="c1">// undefined</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="c1">// undefined</span>
+</code></pre></div></div>
+
+<p>However, if I assign these key values to the variables named after the keys, I get the correct assignment.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="na">surname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Smith</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+<span class="nf">const </span><span class="p">({</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">surname</span><span class="p">,</span> <span class="nx">age</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="c1">// "John"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">surname</span><span class="p">)</span> <span class="c1">// "Smith"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">age</span><span class="p">)</span> <span class="c1">// 25</span>
+</code></pre></div></div>
+
+<p>If I include keys in the object to the left, I can assign key values to variables with different names.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="na">surname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Smith</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+<span class="nf">const </span><span class="p">({</span> <span class="na">name</span><span class="p">:</span> <span class="nx">a</span><span class="p">,</span> <span class="na">surname</span><span class="p">:</span> <span class="nx">b</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="nx">c</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="c1">// "John"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="c1">// "Smith"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="c1">// 25</span>
+</code></pre></div></div>
+
+<h3 id="object-destructuring-and-the-rest-property">Object Destructuring and the Rest Property</h3>
+
+<p>You can use the rest property (<code class="language-plaintext highlighter-rouge">...</code>) also while destructuring an object. The result will be a new object.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="na">surname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Smith</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+<span class="nf">const </span><span class="p">({</span> <span class="nx">name</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="c1">// "John"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">rest</span><span class="p">)</span> <span class="c1">// { surname: 'Smith', age: 25 }</span>
+</code></pre></div></div>
+
+<p>The rest property works in the same way even if you use an object with keys on the left.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="na">surname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Smith</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+<span class="nf">const </span><span class="p">({</span> <span class="na">name</span><span class="p">:</span> <span class="nx">a</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="c1">// "John"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">rest</span><span class="p">)</span> <span class="c1">// { surname: 'Smith', age: 25 }</span>
+</code></pre></div></div>
+
+<p>However, when working with an object, you can use the rest property only with one variable.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="na">surname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Smith</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+<span class="p">({</span><span class="nx">name</span><span class="p">,</span> <span class="p">...{</span><span class="nx">surname</span><span class="p">,</span> <span class="nx">age</span><span class="p">}</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">)</span> <span class="c1">// SyntaxError: `...` must be followed by an assignable reference in assignment contexts</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="na">surname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Smith</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+<span class="p">({</span><span class="na">name</span><span class="p">:</span> <span class="nx">a</span><span class="p">,</span> <span class="p">...{</span><span class="na">surname</span><span class="p">:</span> <span class="nx">b</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="nx">c</span><span class="p">}</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">)</span> <span class="c1">// SyntaxError: `...` must be followed by an assignable reference in assignment contexts</span>
+</code></pre></div></div>
+
+<h3 id="destructuring-nested-objects">Destructuring Nested Objects</h3>
+
+<p>To destructure nested objects, remember to replicate the original object structure accurately.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">player</span> <span class="o">=</span> <span class="p">{</span> <span class="na">firstName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Alessandro</span><span class="dl">"</span><span class="p">,</span> <span class="na">lastName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Del Piero</span><span class="dl">"</span><span class="p">,</span> <span class="na">teams</span><span class="p">:</span> <span class="p">{</span> <span class="na">club</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Juventus</span><span class="dl">"</span><span class="p">,</span> <span class="na">national</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Italy</span><span class="dl">"</span> <span class="p">}}</span>
+<span class="p">({</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">,</span> <span class="na">teams</span><span class="p">:</span> <span class="p">{</span><span class="nx">club</span><span class="p">,</span> <span class="nx">national</span><span class="p">}}</span> <span class="o">=</span> <span class="nx">player</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">,</span> <span class="nx">club</span><span class="p">,</span> <span class="nx">national</span><span class="p">)</span> <span class="c1">// Alessandro Del Piero Juventus Italy</span>
+</code></pre></div></div>
+
+<h3 id="cannot-destructure-object-into-arrays">Cannot Destructure Object into Arrays</h3>
+
+<p>Since array destructuring uses iteration, you cannot destructure an object (which is non-iterable) into an array (which is iterable).</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="na">surname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Smith</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+<span class="p">[</span><span class="nx">d</span><span class="p">,</span> <span class="nx">e</span><span class="p">,</span> <span class="nx">f</span><span class="p">]</span> <span class="o">=</span> <span class="nx">obj</span> <span class="c1">// Uncaught TypeError: object is not iterable (cannot read property Symbol(Symbol.iterator))</span>
+</code></pre></div></div>
+
+<h2 id="constants-and-variables-in-assignment-destructuring">Constants and Variables in Assignment Destructuring</h2>
+
+<p>In the examples we saw so far, we used only the <code class="language-plaintext highlighter-rouge">const</code> declaration to destructure assignments. Of course, you can use also <code class="language-plaintext highlighter-rouge">let</code>, based on your needs.</p>
+
+<p>Moreover, you can also declare specific parts of an array or object in different ways, so that you can fine-tune what you want to keep and what you may want to change later on.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">];</span>
+<span class="kd">const</span> <span class="p">[</span><span class="nx">a</span><span class="p">]</span> <span class="o">=</span> <span class="nx">array</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">[,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="nx">array</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span> <span class="c1">// 1, 2</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">two</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span> <span class="c1">// 1, "two"</span>
+</code></pre></div></div>
+
+<h2 id="assignment-patterns">Assignment Patterns</h2>
+
+<p>All the previous examples dealt with binding examples, meaning that we are destructuring arrays or objects we already declared. However, we can also assign data to an empty array.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">firstName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="na">lastName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Smith</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+<span class="p">({</span><span class="na">firstName</span><span class="p">:</span> <span class="nx">array</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="na">lastName</span><span class="p">:</span> <span class="nx">array</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="na">age</span><span class="p">:</span> <span class="nx">array</span><span class="p">[</span><span class="mi">2</span><span class="p">]}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="c1">// [ 'John', 'Smith', 25 ]</span>
+</code></pre></div></div>
+
+<h2 id="default-values">Default Values</h2>
+
+<p>You can assign default values to destructured properties, which replaces empty or <code class="language-plaintext highlighter-rouge">undefined</code> items.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">];</span>
+<span class="p">[</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span><span class="p">]</span> <span class="o">=</span> <span class="nx">array</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="c1">// 1</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="kc">undefined</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">];</span>
+<span class="p">[</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span><span class="p">]</span> <span class="o">=</span> <span class="nx">array</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="c1">// 1</span>
+</code></pre></div></div>
+
+<p>If the item is <code class="language-plaintext highlighter-rouge">null</code>, the default value does not work.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="kc">null</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">];</span>
+<span class="p">[</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span><span class="p">]</span> <span class="o">=</span> <span class="nx">array</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="c1">// null</span>
+</code></pre></div></div>
+
+<p>Default values also work in objects.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="na">surname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Smith</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+<span class="kd">let</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">surname</span><span class="p">,</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">18</span><span class="p">,</span> <span class="nx">city</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">New York</span><span class="dl">"</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">surname</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">city</span><span class="p">)</span> <span class="c1">// John Smith 25 New York</span>
+</code></pre></div></div>
+
+<h2 id="common-uses-of-destructuring-assignments">Common Uses of Destructuring Assignments</h2>
+
+<h3 id="assignment-destructuring-and-functions">Assignment Destructuring and Functions</h3>
+
+<p>The returned values of a function can be part of a destructuring assignment.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">helloWorld</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="p">[</span><span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">World</span><span class="dl">"</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="nf">helloWorld</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span> <span class="c1">// "Hello World"</span>
+</code></pre></div></div>
+
+<p>You can use assignment destructuring to get a specific value of an object</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="na">surname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Smith</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+<span class="kd">function</span> <span class="nf">getAge</span><span class="p">(</span> <span class="p">{</span><span class="nx">age</span><span class="p">}</span> <span class="p">)</span> <span class="p">{</span> <span class="c1">//this function takes as a parameter the value associated to the key "age" of the provided object</span>
+	<span class="k">return</span> <span class="nx">age</span>
+<span class="p">}</span>
+
+<span class="nf">getAge</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="c1">// 25</span>
+</code></pre></div></div>
+
+<p>You can also rename the parameter.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="na">surname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Smith</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+<span class="kd">function</span> <span class="nf">getAge</span><span class="p">(</span> <span class="p">{</span><span class="na">age</span><span class="p">:</span> <span class="nx">years</span><span class="p">}</span> <span class="p">)</span> <span class="p">{</span> <span class="c1">//this function takes as a parameter the value associated to the key "age" of the provided object</span>
+	<span class="k">return</span> <span class="nx">years</span>
+<span class="p">}</span>
+
+<span class="nf">getAge</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="c1">// 25</span>
+</code></pre></div></div>
+
+<p>You can also access nested keys in an object.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">player</span> <span class="o">=</span> <span class="p">{</span> <span class="na">firstName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Alessandro</span><span class="dl">"</span><span class="p">,</span> <span class="na">lastName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Del Piero</span><span class="dl">"</span><span class="p">,</span> <span class="na">teams</span><span class="p">:</span> <span class="p">{</span> <span class="na">club</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Juventus</span><span class="dl">"</span><span class="p">,</span> <span class="na">national</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Italy</span><span class="dl">"</span> <span class="p">}}</span>
+<span class="kd">function</span> <span class="nf">getTeams</span><span class="p">({</span><span class="nx">lastName</span><span class="p">,</span> <span class="na">teams</span><span class="p">:</span> <span class="p">{</span><span class="nx">club</span><span class="p">,</span> <span class="nx">national</span><span class="p">}})</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="nx">lastName</span><span class="p">}</span><span class="s2"> played for </span><span class="p">${</span><span class="nx">club</span><span class="p">}</span><span class="s2"> and </span><span class="p">${</span><span class="nx">national</span><span class="p">}</span><span class="s2">`</span>
+<span class="p">}</span>
+
+<span class="nf">getTeams</span><span class="p">(</span><span class="nx">player</span><span class="p">)</span> <span class="c1">// 'Del Piero played for Juventus and Italy'</span>
+</code></pre></div></div>
+
+<p>As usual, you can also assign default values.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">player2</span> <span class="o">=</span> <span class="p">{</span><span class="na">lastName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Ronaldo</span><span class="dl">"</span><span class="p">,</span> <span class="na">teams</span><span class="p">:</span> <span class="p">{</span> <span class="na">club</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Real Madrid</span><span class="dl">"</span><span class="p">,</span> <span class="na">national</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Portugal</span><span class="dl">"</span> <span class="p">}}</span>
+<span class="kd">function</span> <span class="nf">getTeams</span><span class="p">({</span><span class="nx">firstName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Cristiano</span><span class="dl">"</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">,</span> <span class="na">teams</span><span class="p">:</span> <span class="p">{</span><span class="nx">club</span><span class="p">,</span> <span class="nx">national</span><span class="p">}})</span> <span class="p">{</span>
+<span class="p">...</span> <span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="nx">firstName</span><span class="p">}</span><span class="s2"> </span><span class="p">${</span><span class="nx">lastName</span><span class="p">}</span><span class="s2"> played for </span><span class="p">${</span><span class="nx">club</span><span class="p">}</span><span class="s2"> and </span><span class="p">${</span><span class="nx">national</span><span class="p">}</span><span class="s2">`</span>
+<span class="p">...</span> <span class="p">}</span>
+<span class="nf">getTeams</span><span class="p">(</span><span class="nx">player2</span><span class="p">)</span> <span class="c1">// Cristiano Ronaldo played for Real Madrid and Portugal</span>
+</code></pre></div></div>
+
+<h3 id="swapping-variables">Swapping Variables</h3>
+
+<p>Assignment destructuring is useful for swapping variables.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">World</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">b</span><span class="p">,</span> <span class="nx">a</span><span class="p">];</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="c1">// "World Hello"</span>
+</code></pre></div></div>
+
+<p>Assignment destructuring is also an excellent way to shuffle an array, as explained in <a href="https://javascript.info/task/shuffle" target="_blank" rel="noopener noreferrer">JavaScript.info</a> (spoilers for exercises!)</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">function</span> <span class="nf">shuffleArray</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nf">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nf">random</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
+		<span class="p">[</span><span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">array</span><span class="p">[</span><span class="nx">j</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">array</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span> <span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">]];</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="assignment-destructuring-and-loops">Assignment Destructuring and Loops</h3>
+
+<p>You can also use assignment destructuring together with <code class="language-plaintext highlighter-rouge">for ... in</code> loops.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">players</span> <span class="o">=</span> <span class="p">[</span> 
+	<span class="nx">player1</span> <span class="o">=</span> <span class="p">{</span> <span class="na">firstName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Alessandro</span><span class="dl">"</span><span class="p">,</span> <span class="na">lastName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Del Piero</span><span class="dl">"</span><span class="p">,</span> <span class="na">teams</span><span class="p">:</span> <span class="p">{</span> <span class="na">club</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Juventus</span><span class="dl">"</span><span class="p">,</span> <span class="na">national</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Italy</span><span class="dl">"</span> <span class="p">}},</span> 
+	<span class="nx">player2</span> <span class="o">=</span> <span class="p">{</span> <span class="na">firstName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Cristiano</span><span class="dl">"</span><span class="p">,</span> <span class="na">lastName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Ronaldo</span><span class="dl">"</span><span class="p">,</span> <span class="na">teams</span><span class="p">:</span> <span class="p">{</span> <span class="na">club</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Real Madrid</span><span class="dl">"</span><span class="p">,</span> <span class="na">national</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Portugal</span><span class="dl">"</span> <span class="p">}}</span>
+<span class="p">];</span>
+<span class="k">for </span><span class="p">(</span><span class="kd">const</span> <span class="p">{</span><span class="na">lastName</span><span class="p">:</span> <span class="nx">surname</span><span class="p">,</span> <span class="na">teams</span><span class="p">:</span> <span class="p">{</span> <span class="na">club</span><span class="p">:</span> <span class="nx">c</span><span class="p">,</span> <span class="na">national</span><span class="p">:</span> <span class="nx">n</span> <span class="p">}}</span> <span class="k">of</span> <span class="nx">players</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">surname</span><span class="p">}</span><span class="s2"> played for </span><span class="p">${</span><span class="nx">c</span><span class="p">}</span><span class="s2"> and </span><span class="p">${</span><span class="nx">n</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+	<span class="c1">// Del Piero played for Juventus and Italy</span>
+	<span class="c1">// Ronaldo played for Real Madrid and Portugal</span>
+<span class="p">}</span> 
+</code></pre></div></div>
+
+<h3 id="combining-arrays-and-objects-in-assignment-destructuring">Combining Arrays and Objects in Assignment Destructuring</h3>
+
+<p>You can easily combine array and object destructuring.</p>
+
+<p>You can destructure objects inside an array…</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">players</span> <span class="o">=</span> <span class="p">[</span> 
+	<span class="nx">player1</span> <span class="o">=</span> <span class="p">{</span> <span class="na">firstName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Alessandro</span><span class="dl">"</span><span class="p">,</span> <span class="na">lastName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Del Piero</span><span class="dl">"</span><span class="p">,</span> <span class="na">teams</span><span class="p">:</span> <span class="p">{</span> <span class="na">club</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Juventus</span><span class="dl">"</span><span class="p">,</span> <span class="na">national</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Italy</span><span class="dl">"</span> <span class="p">}},</span> 
+	<span class="nx">player2</span> <span class="o">=</span> <span class="p">{</span> <span class="na">firstName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Cristiano</span><span class="dl">"</span><span class="p">,</span> <span class="na">lastName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Ronaldo</span><span class="dl">"</span><span class="p">,</span> <span class="na">teams</span><span class="p">:</span> <span class="p">{</span> <span class="na">club</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Real Madrid</span><span class="dl">"</span><span class="p">,</span> <span class="na">national</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Portugal</span><span class="dl">"</span> <span class="p">}}</span>
+<span class="p">];</span>
+
+<span class="p">[</span> <span class="p">,</span> <span class="p">{</span><span class="nx">lastName</span><span class="p">}</span> <span class="p">]</span> <span class="o">=</span> <span class="nx">players</span> <span class="c1">// I'm assigning the value associated to the key "lastName" in the second item of the array "players"</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">lastName</span><span class="p">)</span> <span class="c1">// Ronaldo</span>
+</code></pre></div></div>
+
+<p>…as well as arrays inside objects.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">player</span> <span class="o">=</span> <span class="p">{</span> <span class="na">firstName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Roberto</span><span class="dl">"</span><span class="p">,</span> <span class="na">lastName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Baggio</span><span class="dl">"</span><span class="p">,</span> <span class="na">clubs</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">Vicenza</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Fiorentina</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Juventus</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Milan</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Inter</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Bologna</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Brescia</span><span class="dl">"</span><span class="p">]}</span>
+
+<span class="p">{</span> <span class="na">clubs</span><span class="p">:</span> <span class="p">[</span> <span class="p">,</span> <span class="p">,</span> <span class="nx">club</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span><span class="p">]</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">player</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">club</span><span class="p">,</span> <span class="nx">rest</span><span class="p">)</span> <span class="c1">// Juventus [ 'Milan', 'Inter', 'Bologna', 'Brescia' ]</span>
+</code></pre></div></div>
+
+
+
+
+
+<hr class="divider">
+<div id="disqus_thread"></div>
+<h2>Comments</h2>
+<a href="mailto:andrea.privitera@mailbox.org?subject=Assignment%20Destructuring%20in%20JavaScript">Leave a comment by email</a>. I'll publish the most interesting ones in this section or in another post.
+
+
+
+        </article>
+    </main>
+
+    <footer>
+
+        <div class="rounded-social-buttons">
+
+    <a title="Subscribe to the RSS feed" class="social-button feed" itemprop="feed" href="/feed.xml" target="_blank" aria-label="Subscribe to my RSS feed">
+        <i class="fa fa-rss"></i>
+    </a><a title="" class="social-button email" itemprop="email" href="mailto:%61%6E%64%72%65%61.%70%72%69%76%69%74%65%72%61@%6D%61%69%6C%62%6F%78.%6F%72%67" target="_blank" aria-label="Send me an email">
+        <i class="far fa-envelope"></i>
+    </a><a title="" class="social-button linkedin" href="https://www.linkedin.com/in/andreaprivitera" itemprop="sameAs" target="_blank" aria-label="Connect with me on LinkedIn" rel="noopener noreferrer">
+        <i class="fab fa-linkedin"></i>
+    </a><a title="" class="social-button github" href="https://www.github.com/anprivitera" itemprop="sameAs" target="_blank" aria-label="Find me on GitHub" rel="noopener noreferrer">
+        <i class="fab fa-github"></i>
+    </a><a title="" class="social-button itchio" itemprop="itchio" href="https://anprivitera.itch.io" target="_blank" aria-label="Find me on itch.io" rel="noopener noreferrer">
+        <i class="fab fa-itch-io"></i>
+    </a>
+</div>
+
+        <div class="copy">
+            Powered by <a target="_blank" href="https://jekyllrb.com/" rel="noopener noreferrer">Jekyll</a>, <a target="_blank" href="https://github.io" rel="noopener noreferrer">GitHub Pages</a> and a modified version of
+            <a target="_blank" href="https://github.com/jitinnair1/gradfolio/" rel="noopener noreferrer">Gradfolio</a><br>
+            Last updated on 2023-11-29<br>
+            <em>L'avenir est aux curieux de profession (Jules et Jim)</em>
+        </div>
+
+
+
+
+    </footer>
+
+
+
+</body>
+
+</html>

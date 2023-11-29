@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+<title>Andrea Privitera - posts about soccer</title>
+<link href="/atom.xml" rel="self"/>
+<link href="https://www.anprivitera.com/"/>
+<updated>2023-11-29T09:08:56+00:00</updated>
+<id>https://www.anprivitera.com</id>
+<author>
+<name></name>
+<email></email>
+</author>
+
+
+    
+
+    
+    <entry>
+        <title>Euro 2024 Random Group Stage Generator</title>
+        <link href="https://www.anprivitera.com/2023/11/21/euro-2024-random-group-stage-generator.html"/>
+        <updated>2023-11-21T22:48:00+00:00</updated>
+        <id>https://www.anprivitera.com/2023/11/21/euro-2024-random-group-stage-generator</id>
+        <content type="html">&lt;p&gt;The &lt;a href=&quot;https://en.wikipedia.org/wiki/UEFA_Euro_2024_qualifying&quot;&gt;Euro 2024 qualifying&lt;/a&gt; are (almost) over, and to celebrate Italy’s finally getting qualified again to an international tournament I decided to write a little random generator in JavaScript to imagine how the &lt;a href=&quot;https://en.wikipedia.org/wiki/UEFA_Euro_2024#Group_stage&quot;&gt;final tournament in Germany&lt;/a&gt; may look like next year.&lt;/p&gt;
+
+&lt;p&gt;Regardless of the generator result, it seems that Italy will have a hard time defending the title considering the competition… 🫠&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/anprivitera/anprivitera.github.io/blob/main/assets/js/euro2024RandomGroups.js&quot;&gt;You can find the JS code here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;The information below is accurate as of Nov 23, 2023&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;button class=&quot;simplebutton&quot; id=&quot;generate&quot;&gt;Generate&lt;/button&gt;&lt;/p&gt;
+
+&lt;h3&gt;Group A&lt;/h3&gt;
+&lt;ol&gt;
+    &lt;li id=&quot;a1&quot;&gt;Germany&lt;/li&gt;
+    &lt;li id=&quot;a2&quot;&gt;&lt;/li&gt;
+    &lt;li id=&quot;a3&quot;&gt;&lt;/li&gt;
+    &lt;li id=&quot;a4&quot;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Group B&lt;/h3&gt;
+&lt;ol&gt;
+    &lt;li id=&quot;b1&quot;&gt;&lt;/li&gt;
+    &lt;li id=&quot;b2&quot;&gt;&lt;/li&gt;
+    &lt;li id=&quot;b3&quot;&gt;&lt;/li&gt;
+    &lt;li id=&quot;b4&quot;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Group C&lt;/h3&gt;
+&lt;ol&gt;
+    &lt;li id=&quot;c1&quot;&gt;&lt;/li&gt;
+    &lt;li id=&quot;c2&quot;&gt;&lt;/li&gt;
+    &lt;li id=&quot;c3&quot;&gt;&lt;/li&gt;
+    &lt;li id=&quot;c4&quot;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Group D&lt;/h3&gt;
+&lt;ol&gt;
+    &lt;li id=&quot;d1&quot;&gt;&lt;/li&gt;
+    &lt;li id=&quot;d2&quot;&gt;&lt;/li&gt;
+    &lt;li id=&quot;d3&quot;&gt;&lt;/li&gt;
+    &lt;li id=&quot;d4&quot;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Group E&lt;/h3&gt;
+&lt;ol&gt;
+    &lt;li id=&quot;e1&quot;&gt;&lt;/li&gt;
+    &lt;li id=&quot;e2&quot;&gt;&lt;/li&gt;
+    &lt;li id=&quot;e3&quot;&gt;&lt;/li&gt;
+    &lt;li id=&quot;e4&quot;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Group F&lt;/h3&gt;
+&lt;ol&gt;
+    &lt;li id=&quot;f1&quot;&gt;&lt;/li&gt;
+    &lt;li id=&quot;f2&quot;&gt;&lt;/li&gt;
+    &lt;li id=&quot;f3&quot;&gt;&lt;/li&gt;
+    &lt;li id=&quot;f4&quot;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;script src=&quot;/assets/js/euro2024RandomGroups.js&quot;&gt;
+
+&lt;/script&gt;
+</content>
+    </entry>
+    
+
+    
+
+    
+
+    
+
+
+</feed>

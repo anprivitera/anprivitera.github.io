@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="description"
+        content="Welcome to the personal site of Andrea Privitera. I'm a Vancouver-based web developer skilled in JavaScript, React and NextJS. Here I share my expertise and opinions about Educational Technology (EdTech), Personal Knowledge Managment (PKMS), the Obsidian note-taking app, GTD (Getting Things Done) and TTRPGs (Tabletop Role-Playing Games). Come check out my blog posts and portfolio!">
+    <meta name="google-site-verification" content="w8tlFn4jppLghGPpUnqdaiS-_fvgOyY2oUulAp549dE" />
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'neutral',
+            flowchart: {
+                useMaxWidth: false,
+                htmlLabels: true
+            }
+        });
+    });
+</script>
+    
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Routes and Layouts in NextJS | Andrea Privitera</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Routes and Layouts in NextJS" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Learning (and breaking) NextJS’s layouts" />
+<meta property="og:description" content="Learning (and breaking) NextJS’s layouts" />
+<link rel="canonical" href="https://www.anprivitera.com/2023/11/12/nextjs-page-and-layout.html" />
+<meta property="og:url" content="https://www.anprivitera.com/2023/11/12/nextjs-page-and-layout.html" />
+<meta property="og:site_name" content="Andrea Privitera" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-11-12T04:19:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Routes and Layouts in NextJS" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-11-12T04:19:00+00:00","datePublished":"2023-11-12T04:19:00+00:00","description":"Learning (and breaking) NextJS’s layouts","headline":"Routes and Layouts in NextJS","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.anprivitera.com/2023/11/12/nextjs-page-and-layout.html"},"url":"https://www.anprivitera.com/2023/11/12/nextjs-page-and-layout.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- MathJax -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+     processEscapes: true
+    }
+  });
+</script>
+
+
+    <!-- Counter Analytics Tracking code -->
+<script src="https://cdn.counter.dev/script.js" data-id="23dcad9e-9b5a-4f80-bd2d-744bfcea43d5" data-utcoffset="0"></script>
+
+    <!-- CookiesNotice -->
+<!-- <script type="text/javascript" src="https://cookiesnotice.com/cookie.js?skin=cookielaw3&amp;position=bottom_right&amp;box_radius=0"></script> -->
+<!-- End CookiesNotice -->
+
+    <!-- Load fontawesome here for faster loadtimes: https://stackoverflow.com/a/35880730/9523246 -->
+    <script
+        type="text/javascript"> (function () { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v6.0.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+</head>
+
+<body>
+    <div class="blog-headline">Andrea Privitera</div>
+    <nav class="navbar">
+<a href="/"><i class="fa-solid fa-user"></i> About</a>
+        
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+                        <a href="https://www.anprivitera.com/webdev/"><i class="fa-solid fa-code"></i> WebDev</a>
+                
+        
+                
+                        <a href="https://www.anprivitera.com/education/"><i class="fas fa-graduation-cap"></i> Edu/EdTech</a>
+                
+        
+                
+                        <a href="https://www.anprivitera.com/blog/"><i class="fa-solid fa-pen"></i> Blog</a>
+                
+        
+</nav>
+    <main>
+        <article>
+            <h1 class="post-headline">Routes and Layouts in NextJS</h1>
+<h2 class="post-description">Learning (and breaking) NextJS's layouts</h2>
+<p class="meta"><small><i class="fa fa-calendar"></i> Nov 12, 2023 |  <i class="fa fa-tag"></i> <a href="/tags/programming.html">programming</a>  <i class="fa fa-tag"></i> <a href="/tags/nextjs.html">nextjs</a>  <i class="fa fa-tag"></i> <a href="/tags/web%20development.html">web development</a> </small></p>
+
+
+
+    
+    
+    
+<div class="series-panel">
+    This post is <strong>part   2  </strong> of <strong> 2 </strong> in the <strong>Learning NextJS</strong> series.
+<ol>
+    
+    
+         
+    
+        
+            
+            <li>
+                <a href="/2023/11/12/nextjs-style-fonts-images.html">Learning NextJS: Getting Started, Style and Static Assets</a>
+            
+            </li>
+         
+    
+        
+            
+            <li>
+                Routes and Layouts in NextJS
+            
+            </li>
+         
+    
+         
+    
+         
+    
+</ol>
+</div>
+
+
+
+
+
+<p>Today I completed Chapter 4 of the NextJS tutorial. However, I was in the mood of learning by doing some freeform experimenting. So, before starting the tutorial, I decided to write some nested routing on my own, in the attempt to break things (spoiler alert: it didn’t take long for me to break things!).</p>
+
+<h2 id="some-messy-experiments">Some messy experiments</h2>
+
+<p>I started by creaing a simple about page copying and pasting the layout from the index page.</p>
+
+<p><code class="language-plaintext highlighter-rouge">/app/about/page.tsx</code></p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">About</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nf">getDate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nc">Date</span><span class="p">().</span><span class="nf">toLocaleDateString</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return </span><span class="p">(</span>
+        <span class="p">&lt;&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Welcome! Today is <span class="si">{</span> <span class="nf">getDate</span><span class="p">()</span> <span class="si">}</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Here are some links to get you started:<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+        <span class="p">&lt;/&gt;</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">/app/about/layout.tsx</code></p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="dl">'</span><span class="s1">@/app/ui/global.css</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">lusitana</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@/app/ui/fonts</span><span class="dl">'</span><span class="p">;</span>
+
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">RootLayout</span><span class="p">({</span>
+    <span class="nx">children</span><span class="p">,</span>
+<span class="p">}:</span> <span class="p">{</span>
+    <span class="nl">children</span><span class="p">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">ReactNode</span><span class="p">;</span>
+<span class="p">})</span> <span class="p">{</span>
+    <span class="k">return </span><span class="p">(</span>
+        <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="p">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">body</span> <span class="na">className</span><span class="p">=</span><span class="si">{</span> <span class="s2">`</span><span class="p">${</span><span class="nx">lusitana</span><span class="p">.</span><span class="nx">className</span><span class="p">}</span><span class="s2"> antialiased `</span><span class="si">}</span><span class="p">&gt;</span>  <span class="si">{</span><span class="nx">children</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+            <span class="si">{</span><span class="cm">/* Prop `className` did not match. Server: "__className_e66fe9 antialiased" Client: "__className_712214 antialiased */</span><span class="si">}</span>
+        <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>On a first rendering of the page sometimes visualized the font correctly. But then this error is thrown:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">Warning: Prop `className` did not match. Server: "__className_e66fe9 antialiased" Client: "__className_712214 antialiased "
+</span></code></pre></div></div>
+
+<p>Perhaps changing the function name to match it with the node name would help?</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="dl">'</span><span class="s1">@/app/ui/global.css</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">lusitana</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@/app/ui/fonts</span><span class="dl">'</span><span class="p">;</span>
+
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">AboutLayout</span><span class="p">({</span>
+    <span class="nx">children</span><span class="p">,</span>
+<span class="p">}:</span> <span class="p">{</span>
+    <span class="nl">children</span><span class="p">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">ReactNode</span><span class="p">;</span>
+<span class="p">})</span> <span class="p">{</span>
+    <span class="k">return </span><span class="p">(</span>
+        <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="p">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">body</span> <span class="na">className</span><span class="p">=</span><span class="si">{</span><span class="s2">`</span><span class="p">${</span><span class="nx">lusitana</span><span class="p">.</span><span class="nx">className</span><span class="p">}</span><span class="s2"> antialiased `</span><span class="si">}</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">children</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Nope, same issue:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Warning: Prop `className` did not match. Server: "__className_e66fe9 antialiased" Client: "__className_712214 antialiased "
+</code></pre></div></div>
+
+<p>I tried to export just the <code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code> tag to see if that would solve the problem. While the font renders correctly, now we have a hydration problem.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="dl">'</span><span class="s1">@/app/ui/global.css</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">lusitana</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@/app/ui/fonts</span><span class="dl">'</span><span class="p">;</span>
+
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">AboutLayout</span><span class="p">({</span>
+    <span class="nx">children</span><span class="p">,</span>
+<span class="p">}:</span> <span class="p">{</span>
+    <span class="nl">children</span><span class="p">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">ReactNode</span><span class="p">;</span>
+<span class="p">})</span> <span class="p">{</span>
+    <span class="k">return </span><span class="p">(</span>
+
+        <span class="p">&lt;&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">className</span><span class="p">=</span><span class="si">{</span><span class="s2">`</span><span class="p">${</span><span class="nx">lusitana</span><span class="p">.</span><span class="nx">className</span><span class="p">}</span><span class="s2"> antialiased `</span><span class="si">}</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">children</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+            <span class="si">{</span><span class="cm">/* Hydration failed because the initial UI does not match what was rendered on the server.
+                Warning: Expected server HTML to contain a matching &lt;h1&gt; in &lt;h1&gt;.
+                See more info here: https://nextjs.org/docs/messages/react-hydration-error */</span><span class="si">}</span>
+        <span class="p">&lt;/&gt;</span>
+
+    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Since the original page contained a <code class="language-plaintext highlighter-rouge">&lt;h2&gt;&lt;/h2&gt;</code> element, I thought that perhaps removing it would help avoiding this issue. However, even without the <code class="language-plaintext highlighter-rouge">&lt;h2&gt;</code> element, the same error persists.</p>
+
+<p>In the end, I tried to fix the error by wrapping the text in a <code class="language-plaintext highlighter-rouge">&lt;div&gt;</code> element instead of a <code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code> one. This time, the page rendered without a problem.</p>
+
+<p><code class="language-plaintext highlighter-rouge">/app/about/page.tsx</code></p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="dl">'</span><span class="s1">@/app/ui/global.css</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">lusitana</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@/app/ui/fonts</span><span class="dl">'</span><span class="p">;</span>
+
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">AboutLayout</span><span class="p">({</span>
+    <span class="nx">children</span><span class="p">,</span>
+<span class="p">}:</span> <span class="p">{</span>
+    <span class="nl">children</span><span class="p">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">ReactNode</span><span class="p">;</span>
+<span class="p">})</span> <span class="p">{</span>
+    <span class="k">return </span><span class="p">(</span>
+
+        <span class="p">&lt;&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="p">=</span><span class="si">{</span><span class="s2">`</span><span class="p">${</span><span class="nx">lusitana</span><span class="p">.</span><span class="nx">className</span><span class="p">}</span><span class="s2"> antialiased `</span><span class="si">}</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">children</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="si">{</span><span class="cm">/* No errors */</span><span class="si">}</span>
+        <span class="p">&lt;/&gt;</span>
+
+    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">/app/about/layout.tsx</code></p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">About</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nf">getDate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nc">Date</span><span class="p">().</span><span class="nf">toLocaleDateString</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return </span><span class="p">(</span>
+        <span class="p">&lt;&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Welcome! Today is <span class="si">{</span><span class="nf">getDate</span><span class="p">()</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="si">{</span><span class="cm">/* No errors */</span><span class="si">}</span>
+        <span class="p">&lt;/&gt;</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The problem was clearly about how HTML tag nesting is handled here. Enough hands-on experimenting: time to do some learning through the tutorial!</p>
+
+<h2 id="routes-and-layouts-in-nextjs">Routes and Layouts in NextJS</h2>
+
+<p>Here’s a quick rundown of Chapter 4 of the NextJS tutorial. Each subfolder and its <code class="language-plaintext highlighter-rouge">page.tsx</code> file constitute a URL path on the app (which in NextJS jargon is called a <strong>route</strong>).[^10]</p>
+
+<p>For example:</p>
+
+<div class="mermaid">
+graph LR;
+
+/app/about/page.tsx --&gt; domain.com/about/
+</div>
+
+<p>The default function of each <code class="language-plaintext highlighter-rouge">page.tsx</code> can be technically named anything really, not necessarily the name of the folder node. For example, in an <code class="language-plaintext highlighter-rouge">/app/about/page.tsx</code> we can have:</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">About</span><span class="p">()</span> <span class="p">{</span>
+<span class="c1">// works</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">Page</span><span class="p">()</span> <span class="p">{</span>
+<span class="c1">// also works</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>I’m wondering if there is a naming convention for exported default functions (other than just being clearly named, of course!)</p>
+
+<h3 id="layouts">Layouts</h3>
+
+<p>You can also include a <code class="language-plaintext highlighter-rouge">layout.tsx</code> to help in creating the UI of the page.</p>
+
+<div class="mermaid">
+graph TB;
+
+
+/app/about/layout.tsx --&gt; domain.com/about/
+/app/about/page.tsx --&gt; domain.com/about/
+
+</div>
+
+<p><code class="language-plaintext highlighter-rouge">/app/about/page.tsx</code> and <code class="language-plaintext highlighter-rouge">/app/about/page.tsx</code> are rendered as <code class="language-plaintext highlighter-rouge">https://domain.com/about/</code>.</p>
+
+<p>However, the real power and purpose of <code class="language-plaintext highlighter-rouge">layout.tsx</code> is that it applies to all pages in the same node.</p>
+
+<div class="mermaid">
+graph TB;
+/app/about/layout.tsx --&gt; domain.com/about/
+/app/about/page.tsx --&gt; domain.com/about/
+/app/about/contacts/page.tsx --&gt; domain.com/about/contacts
+/app/about/layout.tsx ---&gt; domain.com/about/contacts
+</div>
+
+<p>To summarize:</p>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">/app/about/page.tsx</code> exports the React component</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">/app/about/layout.tsx</code> creates UI styles that are shared among different pages within the same route.</li>
+</ul>
+
+<p>Also, <code class="language-plaintext highlighter-rouge">/app/layout.tsx</code> is a mandatory part of any NextJS project, since it is shared by all pages in the project. That’s where you actually modify the <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> of the app.</p>
+
+<h2 id="correcting-the-experiment">Correcting the experiment</h2>
+
+<p>Going back to the experiment, I realize that in the tutorial project the <code class="language-plaintext highlighter-rouge">about</code> page is not rendering correctly because the <code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code> tags are positioned inside other HTML elements. But if I wrap <code class="language-plaintext highlighter-rouge">&lt;h1&gt;{children}&lt;/h1&gt;</code> inside of <code class="language-plaintext highlighter-rouge">&lt;article&gt;</code>, then things work fine</p>
+
+<p><code class="language-plaintext highlighter-rouge">/app/about/page.tsx</code></p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">About</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nf">getDate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nc">Date</span><span class="p">().</span><span class="nf">toLocaleDateString</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">return </span><span class="p">(</span>
+        <span class="p">&lt;&gt;</span>
+            Welcome! Today is a beautiful day
+            <span class="si">{</span><span class="cm">/* No errors */</span><span class="si">}</span>
+        <span class="p">&lt;/&gt;</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">/app/about/layout.tsx</code></p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="dl">'</span><span class="s1">@/app/ui/global.css</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">lusitana</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@/app/ui/fonts</span><span class="dl">'</span><span class="p">;</span>
+
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">AboutLayout</span><span class="p">({</span>
+    <span class="nx">children</span><span class="p">,</span>
+<span class="p">}:</span> <span class="p">{</span>
+    <span class="nl">children</span><span class="p">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">ReactNode</span><span class="p">;</span>
+<span class="p">})</span> <span class="p">{</span>
+    <span class="k">return </span><span class="p">(</span>
+        <span class="p">&lt;&gt;</span>
+            <span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">children</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+            <span class="si">{</span><span class="cm">/* No errors */</span><span class="si">}</span>
+        <span class="p">&lt;/&gt;</span>
+
+    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Result:</p>
+
+<p><img src="/assets/images/nextjs-layout1.png" alt="A browser showing a page and the element inspector matching what the code was supposed to do."></p>
+
+<p>However, based on what I read in the tutorial, this would clearly a poor use of <code class="language-plaintext highlighter-rouge">layout.tsx</code>. Perhaps a more productive use of this tool would be to create a heading with a date that applies to all posts of the same route.</p>
+
+<p><code class="language-plaintext highlighter-rouge">/app/about/layout.tsx</code></p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="dl">'</span><span class="s1">@/app/ui/global.css</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">lusitana</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@/app/ui/fonts</span><span class="dl">'</span><span class="p">;</span>
+
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">AboutLayout</span><span class="p">({</span>
+    <span class="nx">children</span><span class="p">,</span>
+<span class="p">}:</span> <span class="p">{</span>
+    <span class="nl">children</span><span class="p">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">ReactNode</span><span class="p">;</span>
+<span class="p">})</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nf">getDate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nc">Date</span><span class="p">().</span><span class="nf">toLocaleDateString</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="kd">function</span> <span class="nf">GetTitle</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return </span><span class="p">(</span>
+            <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Daily post of <span class="si">{</span> <span class="nf">getDate</span><span class="p">()</span> <span class="si">}</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return </span><span class="p">(</span>
+
+        <span class="p">&lt;&gt;</span>
+            <span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nc">GetTitle</span> <span class="p">/&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="p">=</span><span class="si">{</span><span class="s2">`</span><span class="p">${</span><span class="nx">lusitana</span><span class="p">.</span><span class="nx">className</span><span class="p">}</span><span class="s2"> antialiased `</span><span class="si">}</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">children</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+            <span class="si">{</span><span class="cm">/* No errors */</span><span class="si">}</span>
+        <span class="p">&lt;/&gt;</span>
+
+    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">/app/about/page.tsx</code></p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">About</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return </span><span class="p">(</span>
+        <span class="p">&lt;&gt;</span>
+            <span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Welcome! Today is a beautiful day<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+        <span class="p">&lt;/&gt;</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Result:</p>
+
+<p><img src="/assets/images/nextjs-layout2.png" alt="Alt text"></p>
+
+<p>Of course that is just a simple implementation of a layout, but I can’t wait to use it for more complex tasks!</p>
+
+
+
+
+<div class="panel seriesNote">
+    <p>Check out the rest of the <strong>Learning NextJS</strong> series</p>
+<ol>
+    
+    
+         
+    
+        
+            
+            <li>
+                <a href="/2023/11/12/nextjs-style-fonts-images.html">Learning NextJS: Getting Started, Style and Static Assets</a>
+            
+            </li>
+         
+    
+        
+            
+            <li>
+                Routes and Layouts in NextJS
+            
+            </li>
+         
+    
+         
+    
+         
+    
+</ol>
+</div>
+
+<hr class="divider">
+<div id="disqus_thread"></div>
+<h2>Comments</h2>
+<a href="mailto:andrea.privitera@mailbox.org?subject=Routes%20and%20Layouts%20in%20NextJS">Leave a comment by email</a>. I'll publish the most interesting ones in this section or in another post.
+
+
+
+        </article>
+    </main>
+
+    <footer>
+
+        <div class="rounded-social-buttons">
+
+    <a title="Subscribe to the RSS feed" class="social-button feed" itemprop="feed" href="/feed.xml" target="_blank" aria-label="Subscribe to my RSS feed">
+        <i class="fa fa-rss"></i>
+    </a><a title="" class="social-button email" itemprop="email" href="mailto:%61%6E%64%72%65%61.%70%72%69%76%69%74%65%72%61@%6D%61%69%6C%62%6F%78.%6F%72%67" target="_blank" aria-label="Send me an email">
+        <i class="far fa-envelope"></i>
+    </a><a title="" class="social-button linkedin" href="https://www.linkedin.com/in/andreaprivitera" itemprop="sameAs" target="_blank" aria-label="Connect with me on LinkedIn" rel="noopener noreferrer">
+        <i class="fab fa-linkedin"></i>
+    </a><a title="" class="social-button github" href="https://www.github.com/anprivitera" itemprop="sameAs" target="_blank" aria-label="Find me on GitHub" rel="noopener noreferrer">
+        <i class="fab fa-github"></i>
+    </a><a title="" class="social-button itchio" itemprop="itchio" href="https://anprivitera.itch.io" target="_blank" aria-label="Find me on itch.io" rel="noopener noreferrer">
+        <i class="fab fa-itch-io"></i>
+    </a>
+</div>
+
+        <div class="copy">
+            Powered by <a target="_blank" href="https://jekyllrb.com/" rel="noopener noreferrer">Jekyll</a>, <a target="_blank" href="https://github.io" rel="noopener noreferrer">GitHub Pages</a> and a modified version of
+            <a target="_blank" href="https://github.com/jitinnair1/gradfolio/" rel="noopener noreferrer">Gradfolio</a><br>
+            Last updated on 2023-11-29<br>
+            <em>L'avenir est aux curieux de profession (Jules et Jim)</em>
+        </div>
+
+
+
+
+    </footer>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="description"
+        content="Welcome to the personal site of Andrea Privitera. I'm a Vancouver-based web developer skilled in JavaScript, React and NextJS. Here I share my expertise and opinions about Educational Technology (EdTech), Personal Knowledge Managment (PKMS), the Obsidian note-taking app, GTD (Getting Things Done) and TTRPGs (Tabletop Role-Playing Games). Come check out my blog posts and portfolio!">
+    <meta name="google-site-verification" content="w8tlFn4jppLghGPpUnqdaiS-_fvgOyY2oUulAp549dE" />
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Creating Wikipedia-style external links in Obsidian with Templater | Andrea Privitera</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Creating Wikipedia-style external links in Obsidian with Templater" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="When I write a personal note in my Obsidian vault, I like to include an external links section at the bottom of the note. My inspiration for this format was, obviously, Wikipedia. I really like the format of links at the bottom of Wikipedia pages, which includes both the external link and a wikilink to the larger site/service that hosts the page." />
+<meta property="og:description" content="When I write a personal note in my Obsidian vault, I like to include an external links section at the bottom of the note. My inspiration for this format was, obviously, Wikipedia. I really like the format of links at the bottom of Wikipedia pages, which includes both the external link and a wikilink to the larger site/service that hosts the page." />
+<link rel="canonical" href="https://www.anprivitera.com/2023/11/27/wikipedia-style-links-obsidian-templater.html" />
+<meta property="og:url" content="https://www.anprivitera.com/2023/11/27/wikipedia-style-links-obsidian-templater.html" />
+<meta property="og:site_name" content="Andrea Privitera" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-11-27T00:35:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Creating Wikipedia-style external links in Obsidian with Templater" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-11-27T00:35:00+00:00","datePublished":"2023-11-27T00:35:00+00:00","description":"When I write a personal note in my Obsidian vault, I like to include an external links section at the bottom of the note. My inspiration for this format was, obviously, Wikipedia. I really like the format of links at the bottom of Wikipedia pages, which includes both the external link and a wikilink to the larger site/service that hosts the page.","headline":"Creating Wikipedia-style external links in Obsidian with Templater","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.anprivitera.com/2023/11/27/wikipedia-style-links-obsidian-templater.html"},"url":"https://www.anprivitera.com/2023/11/27/wikipedia-style-links-obsidian-templater.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- MathJax -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+     processEscapes: true
+    }
+  });
+</script>
+
+
+    <!-- Counter Analytics Tracking code -->
+<script src="https://cdn.counter.dev/script.js" data-id="23dcad9e-9b5a-4f80-bd2d-744bfcea43d5" data-utcoffset="0"></script>
+
+    <!-- CookiesNotice -->
+<!-- <script type="text/javascript" src="https://cookiesnotice.com/cookie.js?skin=cookielaw3&amp;position=bottom_right&amp;box_radius=0"></script> -->
+<!-- End CookiesNotice -->
+
+    <!-- Load fontawesome here for faster loadtimes: https://stackoverflow.com/a/35880730/9523246 -->
+    <script
+        type="text/javascript"> (function () { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v6.0.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+</head>
+
+<body>
+    <div class="blog-headline">Andrea Privitera</div>
+    <nav class="navbar">
+<a href="/"><i class="fa-solid fa-user"></i> About</a>
+        
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+                        <a href="https://www.anprivitera.com/webdev/"><i class="fa-solid fa-code"></i> WebDev</a>
+                
+        
+                
+                        <a href="https://www.anprivitera.com/education/"><i class="fas fa-graduation-cap"></i> Edu/EdTech</a>
+                
+        
+                
+                        <a href="https://www.anprivitera.com/blog/"><i class="fa-solid fa-pen"></i> Blog</a>
+                
+        
+</nav>
+    <main>
+        <article>
+            <h1 class="post-headline">Creating Wikipedia-style external links in Obsidian with Templater</h1>
+<h2 class="post-description"></h2>
+<p class="meta"><small><i class="fa fa-calendar"></i> Nov 27, 2023 |  <i class="fa fa-tag"></i> <a href="/tags/obsidian.html">obsidian</a>  <i class="fa fa-tag"></i> <a href="/tags/templater.html">templater</a>  <i class="fa fa-tag"></i> <a href="/tags/javascript.html">javascript</a>  <i class="fa fa-tag"></i> <a href="/tags/pkms.html">pkms</a> </small></p>
+
+
+
+
+
+
+
+<p>When I write a personal note in my <a href="https://obsidian.md/" target="_blank" rel="noopener noreferrer">Obsidian</a> vault, I like to include an external links section at the bottom of the note. My inspiration for this format was, obviously, <a href="https://en.wikipedia.org/" target="_blank" rel="noopener noreferrer">Wikipedia</a>. I really like the format of links at the bottom of Wikipedia pages, which includes both the external link and a wikilink to the larger site/service that hosts the page.</p>
+
+<p><img src="/assets/images/wikipedia-external-links.png" alt="A screenshot of external links on Wikipedia"></p>
+
+<p>It makes sense to the way I organize notes, because it allows me to track which services, people or organizations are part of a certain social media.</p>
+
+<p><img src="/assets/images/wikipedia-style-links.png" alt="A screenshot of external links in my vault"></p>
+
+<p>There is only one issue with this solution: it takes quite a lot of time to type the external links and then the internal link. To make the process quicker, I wrote this script, which I then activate in my Obsidian vault using <a href="https://github.com/SilentVoid13/Templater" target="_blank" rel="noopener noreferrer">Templater</a>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;%*</span> <span class="c1">// Templater syntax</span>
+<span class="k">async</span> <span class="kd">function</span> <span class="nf">links</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">let</span> <span class="nx">linkOutput</span><span class="p">,</span> <span class="nx">siteTitle</span><span class="p">,</span> <span class="nx">siteUrl</span><span class="p">,</span> <span class="nx">siteOrSocial</span><span class="p">;</span>
+	<span class="kd">const</span> <span class="nx">noteTitle</span> <span class="o">=</span> <span class="nx">tp</span><span class="p">.</span><span class="nx">file</span><span class="p">.</span><span class="nx">title</span><span class="p">;</span> <span class="c1">// Templater API</span>
+	<span class="kd">const</span> <span class="nx">clipboard</span> <span class="o">=</span> <span class="nx">tp</span><span class="p">.</span><span class="nx">system</span><span class="p">.</span><span class="nx">clipboard</span><span class="p">;</span> <span class="c1">// Templater API</span>
+	<span class="kd">const</span> <span class="nx">suggester</span> <span class="o">=</span> <span class="nx">tp</span><span class="p">.</span><span class="nx">system</span><span class="p">.</span><span class="nx">suggester</span><span class="p">;</span> <span class="c1">// Templater API</span>
+	<span class="kd">const</span> <span class="nx">prompt</span> <span class="o">=</span> <span class="nx">tp</span><span class="p">.</span><span class="nx">system</span><span class="p">.</span><span class="nx">prompt</span><span class="p">;</span> <span class="c1">// Templater API</span>
+
+	<span class="nx">siteUrl</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">What is the link's url?</span><span class="dl">"</span><span class="p">,</span> <span class="nx">clipboard</span><span class="p">);</span>
+	<span class="nx">siteTitle</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">What is the name of the site?</span><span class="dl">"</span><span class="p">);</span>
+	<span class="kd">let</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">[{</span> <span class="na">title</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Single Site</span><span class="dl">"</span><span class="p">,</span> <span class="na">formElement</span><span class="p">:</span> <span class="s2">`[</span><span class="p">${</span><span class="nx">siteTitle</span><span class="p">}</span><span class="s2">](</span><span class="p">${</span><span class="nx">siteUrl</span><span class="p">}</span><span class="s2">)`</span><span class="p">},</span> <span class="p">{</span><span class="na">title</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Page on Site</span><span class="dl">"</span><span class="p">,</span> <span class="na">formElement</span><span class="p">:</span> <span class="s2">`[</span><span class="p">${</span><span class="nx">noteTitle</span><span class="p">}</span><span class="s2">](</span><span class="p">${</span><span class="nx">siteUrl</span><span class="p">}</span><span class="s2">) on [[</span><span class="p">${</span><span class="nx">siteTitle</span><span class="p">}</span><span class="s2">]]`</span><span class="p">}];</span>
+	<span class="nx">linkOutput</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">suggester</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nf">map</span><span class="p">((</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">x</span><span class="p">.</span><span class="nx">title</span><span class="p">),</span> <span class="nx">options</span><span class="p">.</span><span class="nf">map</span><span class="p">((</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">x</span><span class="p">.</span><span class="nx">formElement</span><span class="p">),</span> <span class="kc">true</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Is this a link for a single site or for a page in a bigger site?</span><span class="dl">"</span><span class="p">);</span>
+	<span class="k">return</span> <span class="nx">linkOutput</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">string</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">links</span><span class="p">();</span>
+<span class="o">%&gt;</span> <span class="c1">// Templater syntax</span>
+<span class="o">-</span> <span class="o">&lt;%*</span> <span class="nx">tR</span> <span class="o">+=</span> <span class="nx">string</span> <span class="o">%&gt;</span> <span class="c1">// Templater syntax</span>
+</code></pre></div></div>
+
+<p>Here is the script in action.</p>
+
+<p><img src="/assets/images/wikipedia%20links%20example.gif" alt="A recording of the script in action"></p>
+
+<p>Feel free to grab this script and use it for your own vault!</p>
+
+
+
+
+
+<hr class="divider">
+<div id="disqus_thread"></div>
+<h2>Comments</h2>
+<a href="mailto:andrea.privitera@mailbox.org?subject=Creating%20Wikipedia-style%20external%20links%20in%20Obsidian%20with%20Templater">Leave a comment by email</a>. I'll publish the most interesting ones in this section or in another post.
+
+
+
+        </article>
+    </main>
+
+    <footer>
+
+        <div class="rounded-social-buttons">
+
+    <a title="Subscribe to the RSS feed" class="social-button feed" itemprop="feed" href="/feed.xml" target="_blank" aria-label="Subscribe to my RSS feed">
+        <i class="fa fa-rss"></i>
+    </a><a title="" class="social-button email" itemprop="email" href="mailto:%61%6E%64%72%65%61.%70%72%69%76%69%74%65%72%61@%6D%61%69%6C%62%6F%78.%6F%72%67" target="_blank" aria-label="Send me an email">
+        <i class="far fa-envelope"></i>
+    </a><a title="" class="social-button linkedin" href="https://www.linkedin.com/in/andreaprivitera" itemprop="sameAs" target="_blank" aria-label="Connect with me on LinkedIn" rel="noopener noreferrer">
+        <i class="fab fa-linkedin"></i>
+    </a><a title="" class="social-button github" href="https://www.github.com/anprivitera" itemprop="sameAs" target="_blank" aria-label="Find me on GitHub" rel="noopener noreferrer">
+        <i class="fab fa-github"></i>
+    </a><a title="" class="social-button itchio" itemprop="itchio" href="https://anprivitera.itch.io" target="_blank" aria-label="Find me on itch.io" rel="noopener noreferrer">
+        <i class="fab fa-itch-io"></i>
+    </a>
+</div>
+
+        <div class="copy">
+            Powered by <a target="_blank" href="https://jekyllrb.com/" rel="noopener noreferrer">Jekyll</a>, <a target="_blank" href="https://github.io" rel="noopener noreferrer">GitHub Pages</a> and a modified version of
+            <a target="_blank" href="https://github.com/jitinnair1/gradfolio/" rel="noopener noreferrer">Gradfolio</a><br>
+            Last updated on 2023-11-29<br>
+            <em>L'avenir est aux curieux de profession (Jules et Jim)</em>
+        </div>
+
+
+
+
+    </footer>
+
+
+
+</body>
+
+</html>

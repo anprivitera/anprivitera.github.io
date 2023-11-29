@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="description"
+        content="Welcome to the personal site of Andrea Privitera. I'm a Vancouver-based web developer skilled in JavaScript, React and NextJS. Here I share my expertise and opinions about Educational Technology (EdTech), Personal Knowledge Managment (PKMS), the Obsidian note-taking app, GTD (Getting Things Done) and TTRPGs (Tabletop Role-Playing Games). Come check out my blog posts and portfolio!">
+    <meta name="google-site-verification" content="w8tlFn4jppLghGPpUnqdaiS-_fvgOyY2oUulAp549dE" />
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'neutral',
+            flowchart: {
+                useMaxWidth: false,
+                htmlLabels: true
+            }
+        });
+    });
+</script>
+    
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Learning NextJS: Getting Started, Style and Static Assets | Andrea Privitera</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Learning NextJS: Getting Started, Style and Static Assets" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Learning the basics of NextJS" />
+<meta property="og:description" content="Learning the basics of NextJS" />
+<link rel="canonical" href="https://www.anprivitera.com/2023/11/12/nextjs-style-fonts-images.html" />
+<meta property="og:url" content="https://www.anprivitera.com/2023/11/12/nextjs-style-fonts-images.html" />
+<meta property="og:site_name" content="Andrea Privitera" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-11-12T01:24:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Learning NextJS: Getting Started, Style and Static Assets" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-11-12T01:24:00+00:00","datePublished":"2023-11-12T01:24:00+00:00","description":"Learning the basics of NextJS","headline":"Learning NextJS: Getting Started, Style and Static Assets","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.anprivitera.com/2023/11/12/nextjs-style-fonts-images.html"},"url":"https://www.anprivitera.com/2023/11/12/nextjs-style-fonts-images.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- MathJax -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+     processEscapes: true
+    }
+  });
+</script>
+
+
+    <!-- Counter Analytics Tracking code -->
+<script src="https://cdn.counter.dev/script.js" data-id="23dcad9e-9b5a-4f80-bd2d-744bfcea43d5" data-utcoffset="0"></script>
+
+    <!-- CookiesNotice -->
+<!-- <script type="text/javascript" src="https://cookiesnotice.com/cookie.js?skin=cookielaw3&amp;position=bottom_right&amp;box_radius=0"></script> -->
+<!-- End CookiesNotice -->
+
+    <!-- Load fontawesome here for faster loadtimes: https://stackoverflow.com/a/35880730/9523246 -->
+    <script
+        type="text/javascript"> (function () { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v6.0.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+</head>
+
+<body>
+    <div class="blog-headline">Andrea Privitera</div>
+    <nav class="navbar">
+<a href="/"><i class="fa-solid fa-user"></i> About</a>
+        
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+        
+                
+                        <a href="https://www.anprivitera.com/webdev/"><i class="fa-solid fa-code"></i> WebDev</a>
+                
+        
+                
+                        <a href="https://www.anprivitera.com/education/"><i class="fas fa-graduation-cap"></i> Edu/EdTech</a>
+                
+        
+                
+                        <a href="https://www.anprivitera.com/blog/"><i class="fa-solid fa-pen"></i> Blog</a>
+                
+        
+</nav>
+    <main>
+        <article>
+            <h1 class="post-headline">Learning NextJS: Getting Started, Style and Static Assets</h1>
+<h2 class="post-description">Learning the basics of NextJS</h2>
+<p class="meta"><small><i class="fa fa-calendar"></i> Nov 12, 2023 |  <i class="fa fa-tag"></i> <a href="/tags/programming.html">programming</a>  <i class="fa fa-tag"></i> <a href="/tags/nextjs.html">nextjs</a>  <i class="fa fa-tag"></i> <a href="/tags/web%20development.html">web development</a>  <i class="fa fa-tag"></i> <a href="/tags/learning%20design.html">learning design</a> </small></p>
+
+
+
+    
+    
+    
+<div class="series-panel">
+    This post is <strong>part   1  </strong> of <strong> 2 </strong> in the <strong>Learning NextJS</strong> series.
+<ol>
+    
+    
+         
+    
+        
+            
+            <li>
+                Learning NextJS: Getting Started, Style and Static Assets
+            
+            </li>
+         
+    
+        
+            
+            <li>
+                <a href="/2023/11/12/nextjs-page-and-layout.html">Routes and Layouts in NextJS</a>
+            
+            </li>
+         
+    
+         
+    
+         
+    
+</ol>
+</div>
+
+
+
+
+
+<p>Vercel recently released <a href="https://nextjs.org/learn" target="_blank" rel="noopener noreferrer">a new tutorial for NextJS</a> alongside version 14 of the framework. I decided to take it to familiarize myself with this tool. I just finished Chapter 3, and I’m already captivated by both the strengths of this framework and the excellent learning experience offered by the tutorial.</p>
+
+<p>I thought about sharing my learnings here in a series of posts. I highly recommend taking this tutorial by yourself. However, if you want to have a quick preview of what you’ll find, or if you know previous versions of the framework and are interested in taking a quick look to the features of v14, I hope you’ll find this post useful!</p>
+
+<p>If you want, you can follow what I’m learning also <a href="https://github.com/anprivitera/nextjs-dashboard" target="_blank" rel="noopener noreferrer">by starring the GitHub repository where I’m sharing the tutorial steps</a>.</p>
+
+<h2 id="creating-an-app">Creating an App</h2>
+
+<h3 id="how-the-tutorial-does-it">How the tutorial does it</h3>
+
+<p>The tutorial comes with an already half-completed app. The course designers motivate this choice by saying that it puts the learner in the shoes of a real-life situation, and that’s certainly something I would like to see in more tutorials moving forward. Also, similarly to what happens in <a href="https://javascript.info" target="_blank" rel="noopener noreferrer">Javascript.info</a> the designers managed to insert small, simple yet non-trivial tasks that the learner has to complete to verify their knowledge. I find this method an excellent way to involve the learner in the course, and that’s mainly how the tutorial so far has lived up to the expectations it set for itself.</p>
+
+<h3 id="how-you-do-it-in-real-life">How you do it in real life</h3>
+
+<p>However, if you’re installing NextJS from scratch, you’ll just have to run this command.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx create-next-app
+</code></pre></div></div>
+
+<p>On a first install, you’ll be able to select several options, including</p>
+
+<ul>
+  <li>The project’s name</li>
+  <li>Whether you want to use TypeScript (default: yes)</li>
+  <li>Whether you want to use ESLint (default: yes)</li>
+  <li>Whether you want to use a src (default: no, since <code class="language-plaintext highlighter-rouge">/app/</code> is now the default)</li>
+  <li>Whether you want to use AP router (default: yes)</li>
+  <li>Whether you want customize the default import alias (@/*)? (default: no, but if you select yes you can further select which import alias to select).</li>
+</ul>
+
+<h3 id="running-development-server">Running Development Server</h3>
+
+<p>To run the development server locally<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm i <span class="c"># installs project's packages</span>
+npm run dev
+</code></pre></div></div>
+
+<h2 id="folder-structure">Folder Structure</h2>
+
+<p>Here is the folder structure of a NextJS app.</p>
+
+<div class="mermaid">
+graph LR;
+/ --&gt; app/
+/ --&gt; public/
+/ --&gt; scripts/
+/ --&gt; next.config.js
+app/ --&gt; Lib/
+app/ --&gt; UI/
+app/ --&gt; layout.tsx
+app/ --&gt; page.tsx
+UI/ --&gt; global.css
+UI/ --&gt; *name*.module.css
+UI/ --&gt; font.ts
+</div>
+
+<p>Here’s an explanation of what these files do.</p>
+
+<ul>
+  <li>
+<strong><code class="language-plaintext highlighter-rouge">/app/</code></strong>: where you spend most time working<sup id="fnref:1:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>
+    <ul>
+      <li>
+<strong><code class="language-plaintext highlighter-rouge">/app/lib/</code></strong>: for functions<sup id="fnref:1:2" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>
+</li>
+      <li>
+<strong><code class="language-plaintext highlighter-rouge">/app/ui/</code></strong>: ui components<sup id="fnref:1:3" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>
+        <ul>
+          <li>
+<strong><code class="language-plaintext highlighter-rouge">/app/ui/global.css</code></strong>
+            <ul>
+              <li>sets the CSS style rules for all the routes in the application when imported in <code class="language-plaintext highlighter-rouge">/app/layout.tsx</code>
+</li>
+            </ul>
+          </li>
+          <li>
+<strong><code class="language-plaintext highlighter-rouge">/app/ui/*name*.module.css</code></strong>
+            <ul>
+              <li>example of an individual CSS module, which you can import to a single page.</li>
+            </ul>
+          </li>
+          <li>
+<strong><code class="language-plaintext highlighter-rouge">/app/ui/font.ts</code></strong>
+            <ul>
+              <li>managing application fonts.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+<strong><code class="language-plaintext highlighter-rouge">/app/layout.tsx</code></strong>
+        <ul>
+          <li>exports the whole site for rendering.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+<strong><code class="language-plaintext highlighter-rouge">/public/</code></strong>: for static assets<sup id="fnref:1:4" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>, like images<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>
+</li>
+  <li>
+<strong><code class="language-plaintext highlighter-rouge">/scripts/</code></strong>: script to populate database (at least in the NextJS tutorial<sup id="fnref:1:5" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>).</li>
+  <li>
+<strong><code class="language-plaintext highlighter-rouge">/next.config.js</code></strong>: present already when the app is created for the first time</li>
+</ul>
+
+<h2 id="styling">Styling</h2>
+
+<h3 id="styling-solutions">Styling Solutions</h3>
+
+<p>You can use the following styling solutions for your NextJS app.</p>
+
+<ul>
+  <li>Global CSS</li>
+  <li>CSS Modules</li>
+  <li>Tailwind<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>
+    <ul>
+      <li>When configuring a NextJS app for the first time, you can choose to use Tailwind to manage the app style.<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>
+</li>
+    </ul>
+  </li>
+  <li>SASS<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup>
+</li>
+  <li>CSS-in-JS<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote" rel="footnote">6</a></sup>
+</li>
+</ul>
+
+<p>Different styling solutions can coexist at the same time in a NextJS project (or, at least, Global CSS, CSS Modules and Tailwind).<sup id="fnref:7" role="doc-noteref"><a href="#fn:7" class="footnote" rel="footnote">7</a></sup></p>
+
+<h3 id="global-css">Global CSS</h3>
+
+<p>If you want to use the same CSS style globally, import <code class="language-plaintext highlighter-rouge">/app/ui/global.css</code> into <code class="language-plaintext highlighter-rouge">/app/layout.tsx</code><sup id="fnref:4:1" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup></p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="dl">'</span><span class="s1">@/app/ui/global.css</span><span class="dl">'</span>
+</code></pre></div></div>
+
+<h3 id="css-modules">CSS Modules</h3>
+
+<p>NextJS also works with locally scoped CSS modules, which allow for more personalization. In this case, you import modules individually in each page.<sup id="fnref:7:1" role="doc-noteref"><a href="#fn:7" class="footnote" rel="footnote">7</a></sup></p>
+
+<h3 id="classname-instead-of-class">className Instead of class</h3>
+
+<p>Regardless of whether you use Tailwind, vanilla CSS or other methods to style the components, you should use <code class="language-plaintext highlighter-rouge">className</code> as you do in React, not <code class="language-plaintext highlighter-rouge">class</code>.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span><span class="nc">ArrowRightIcon</span> <span class="na">className</span><span class="p">=</span><span class="s">"w-5 md:w-6"</span> <span class="p">/&gt;</span>
+</code></pre></div></div>
+
+<p>If you use <code class="language-plaintext highlighter-rouge">class</code> instead of <code class="language-plaintext highlighter-rouge">className</code> the page seems to be compiled anyway, but with an error in the npm terminal:</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span><span class="nc">ArrowRightIcon</span> <span class="na">class</span><span class="p">=</span><span class="s">"w-5 md:w-6"</span> <span class="p">/&gt;</span> <span class="c1">//Compiling /page ...</span>
+<span class="c1">// ✓ Compiled /page in 1320ms (470 modules)</span>
+<span class="c1">// Warning: Invalid DOM property `class`. Did you mean `className`?</span>
+</code></pre></div></div>
+
+<h3 id="clsx-integration">clsx Integration</h3>
+
+<p>In NodeJS, you can use clsx to toggle name classes based on conditions.<sup id="fnref:8" role="doc-noteref"><a href="#fn:8" class="footnote" rel="footnote">8</a></sup></p>
+
+<h2 id="static-assets-management">Static Assets Management</h2>
+
+<p>The way NextJS optimizes static assets like fonts or images is by downloading them during build time, and hosting them. This way, the browser does not have to make any other network requests.</p>
+
+<h3 id="fonts">Fonts</h3>
+
+<p>To use fonts, first import them in the <code class="language-plaintext highlighter-rouge">/app/ui/fonts.ts</code> file.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Inter</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">next/font/google</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// importing Google font already present in the NextJS installation</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">inter</span> <span class="o">=</span> <span class="nc">Inter</span><span class="p">({</span> <span class="na">subsets</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">latin</span><span class="dl">'</span><span class="p">],</span> <span class="na">weight</span><span class="p">:</span> <span class="mi">400</span><span class="p">});</span> <span class="c1">// exporting the constant inter as the font Inter with subset latin and a weight of 400.</span>
+</code></pre></div></div>
+
+<p>Then, to set the same font for the same body, edit <code class="language-plaintext highlighter-rouge">/app/layout.tsx</code></p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="o">&lt;</span><span class="nx">body</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="s2">`</span><span class="p">${</span><span class="nx">inter</span><span class="p">.</span><span class="nx">className</span><span class="p">}</span><span class="s2"> antialiased`</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">children</span><span class="p">}&lt;</span><span class="err">/</span><span class="na">body</span><span class="p">&gt;</span>
+...
+</code></pre></div></div>
+
+<p>The browser console then shows</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;body</span> <span class="na">class=</span><span class="s">"__className_2eaf22 antialiased"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.__className_e66fe9</span><span class="err"> </span><span class="p">{</span>
+	<span class="nl">font-family</span><span class="p">:</span> <span class="s2">'__Inter_e66fe9'</span><span class="p">,</span> <span class="s2">'__Inter_Fallback_e66fe9'</span><span class="p">;</span>
+	<span class="nl">font-style</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="images">Images</h3>
+
+<p>Here is how you use the <code class="language-plaintext highlighter-rouge">Image</code> component in NextJS</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Image</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">next/image</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// importing the component.</span>
+
+<span class="p">&lt;</span><span class="nc">Image</span> 
+	<span class="na">src</span><span class="p">=</span><span class="s">"/image.png"</span> <span class="c1">// don't forget the initial "/"</span>
+	<span class="na">height</span><span class="p">=</span><span class="si">{}</span> <span class="c1">// mandatory</span>
+	<span class="na">className</span><span class="p">=</span><span class="s">""</span> <span class="c1">//optional</span>
+	<span class="na">alt</span><span class="p">=</span><span class="s">""</span> <span class="c1">// accessibility</span>
+<span class="p">/&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">className="hidden md:block"</code> hides a part of the page on mobile and show it on desktop.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">className="block md:hidden"</code> hides the part of the page on mobile.</p>
+  </li>
+</ul>
+
+<h2 id="unanswered-questions-so-far">Unanswered Questions so far</h2>
+
+<ul>
+  <li>Can Global CSS, CSS Modules, Tailwind, SASS and CSS-in-JS coexist all at the same time in a NextJS app?</li>
+  <li>Can I import personalized fonts in the <code class="language-plaintext highlighter-rouge">/public/</code> folder for rendering?</li>
+  <li>What is exactly a Route?</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>And that’s it for today! I hope you found this post informative, but of course it is not a replacement for the amazing tutorial Vercel has designed.</p>
+
+<p>I’ll be back soon with more learnings about NextJS!</p>
+
+<hr>
+
+<h2 id="footnotes">Footnotes</h2>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><a href="https://nextjs.org/learn/dashboard-app/getting-started" target="_blank" rel="noopener noreferrer">Getting Started - NextJS Tutorial</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">↩<sup>2</sup></a> <a href="#fnref:1:2" class="reversefootnote" role="doc-backlink">↩<sup>3</sup></a> <a href="#fnref:1:3" class="reversefootnote" role="doc-backlink">↩<sup>4</sup></a> <a href="#fnref:1:4" class="reversefootnote" role="doc-backlink">↩<sup>5</sup></a> <a href="#fnref:1:5" class="reversefootnote" role="doc-backlink">↩<sup>6</sup></a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="https://nextjs.org/learn/dashboard-app/optimizing-fonts-images#why-optimize-images" target="_blank" rel="noopener noreferrer">Why optimize images? - NextJS Tutorial</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p><a href="https://nextjs.org/docs/app/building-your-application/styling/tailwind-css" target="_blank" rel="noopener noreferrer">Tailwind CSS - NextJS Docs</a> <a href="#fnref:3" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p><a href="https://nextjs.org/learn/dashboard-app/css-styling#tailwind" target="_blank" rel="noopener noreferrer">CSS styling &gt; Tailwind - NextJS Tutorial</a> <a href="#fnref:4" class="reversefootnote" role="doc-backlink">↩</a> <a href="#fnref:4:1" class="reversefootnote" role="doc-backlink">↩<sup>2</sup></a></p>
+    </li>
+    <li id="fn:5" role="doc-endnote">
+      <p><a href="https://nextjs.org/docs/app/building-your-application/styling/sass" target="_blank" rel="noopener noreferrer">Sass - NextJS docs</a> <a href="#fnref:5" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:6" role="doc-endnote">
+      <p><a href="https://nextjs.org/docs/app/building-your-application/styling/css-in-js" target="_blank" rel="noopener noreferrer">CSS-in-JS - NextJS docs</a> <a href="#fnref:6" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:7" role="doc-endnote">
+      <p><a href="https://nextjs.org/learn/dashboard-app/css-styling#css-modules" target="_blank" rel="noopener noreferrer">CSS Modules - NextJS Tutorial</a> <a href="#fnref:7" class="reversefootnote" role="doc-backlink">↩</a> <a href="#fnref:7:1" class="reversefootnote" role="doc-backlink">↩<sup>2</sup></a></p>
+    </li>
+    <li id="fn:8" role="doc-endnote">
+      <p><a href="https://nextjs.org/learn/dashboard-app/css-styling#using-the-clsx-library-to-toggle-class-names" target="_blank" rel="noopener noreferrer">Using the clsx library - NextJS tutorial</a> <a href="#fnref:8" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+
+
+
+<div class="panel seriesNote">
+    <p>Check out the rest of the <strong>Learning NextJS</strong> series</p>
+<ol>
+    
+    
+         
+    
+        
+            
+            <li>
+                Learning NextJS: Getting Started, Style and Static Assets
+            
+            </li>
+         
+    
+        
+            
+            <li>
+                <a href="/2023/11/12/nextjs-page-and-layout.html">Routes and Layouts in NextJS</a>
+            
+            </li>
+         
+    
+         
+    
+         
+    
+</ol>
+</div>
+
+<hr class="divider">
+<div id="disqus_thread"></div>
+<h2>Comments</h2>
+<a href="mailto:andrea.privitera@mailbox.org?subject=Learning%20NextJS:%20Getting%20Started,%20Style%20and%20Static%20Assets">Leave a comment by email</a>. I'll publish the most interesting ones in this section or in another post.
+
+
+
+        </article>
+    </main>
+
+    <footer>
+
+        <div class="rounded-social-buttons">
+
+    <a title="Subscribe to the RSS feed" class="social-button feed" itemprop="feed" href="/feed.xml" target="_blank" aria-label="Subscribe to my RSS feed">
+        <i class="fa fa-rss"></i>
+    </a><a title="" class="social-button email" itemprop="email" href="mailto:%61%6E%64%72%65%61.%70%72%69%76%69%74%65%72%61@%6D%61%69%6C%62%6F%78.%6F%72%67" target="_blank" aria-label="Send me an email">
+        <i class="far fa-envelope"></i>
+    </a><a title="" class="social-button linkedin" href="https://www.linkedin.com/in/andreaprivitera" itemprop="sameAs" target="_blank" aria-label="Connect with me on LinkedIn" rel="noopener noreferrer">
+        <i class="fab fa-linkedin"></i>
+    </a><a title="" class="social-button github" href="https://www.github.com/anprivitera" itemprop="sameAs" target="_blank" aria-label="Find me on GitHub" rel="noopener noreferrer">
+        <i class="fab fa-github"></i>
+    </a><a title="" class="social-button itchio" itemprop="itchio" href="https://anprivitera.itch.io" target="_blank" aria-label="Find me on itch.io" rel="noopener noreferrer">
+        <i class="fab fa-itch-io"></i>
+    </a>
+</div>
+
+        <div class="copy">
+            Powered by <a target="_blank" href="https://jekyllrb.com/" rel="noopener noreferrer">Jekyll</a>, <a target="_blank" href="https://github.io" rel="noopener noreferrer">GitHub Pages</a> and a modified version of
+            <a target="_blank" href="https://github.com/jitinnair1/gradfolio/" rel="noopener noreferrer">Gradfolio</a><br>
+            Last updated on 2023-11-29<br>
+            <em>L'avenir est aux curieux de profession (Jules et Jim)</em>
+        </div>
+
+
+
+
+    </footer>
+
+
+
+</body>
+
+</html>
