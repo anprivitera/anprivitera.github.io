@@ -32,10 +32,10 @@ compress_html:
 collections:
   coding:
     output: true
-    permalink: /programming/:name/
+    permalink: /webdev/:name/
   learning:
     output: true
-    permalink: /learning-design/:name/
+    permalink: /education/:name/
   tags:
     output: true
     permalink: /tags/:path
