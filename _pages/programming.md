@@ -1,8 +1,9 @@
 ---
-title: Programming Projects
+title: WebDev
 layout: default
 permalink: /programming/
 published: true
+priority: 1
 ---
 
 <h1>Programming Projects</h1>
