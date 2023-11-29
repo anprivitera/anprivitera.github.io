@@ -118,6 +118,10 @@ a {
 img {
   max-width: 100%;
   @include border();
+  @media (prefers-color-scheme: dark) {
+    filter: brightness(110%)
+    
+  }
 }
 
 img.emoji {
