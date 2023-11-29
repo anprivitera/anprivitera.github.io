@@ -2,12 +2,10 @@
 layout: about
 permalink: /
 profile:
-  align: right
+  align: left
   image: profile.webp
 published: true
 ---
-
-<h1>Hi, I'm Andrea :wave:</h1>
 
 I'm a **web developer**, **learning designer** and **gaming enthusiast** based in **Vancouver, BC**.
 
