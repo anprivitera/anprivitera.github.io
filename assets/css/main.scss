@@ -60,6 +60,15 @@ $body-accent-bg-dark: lighten($body-bg-dark, 7%);
   }
 }
 
+@mixin headings(){
+  font-family: fonts.$base-heading-font;
+  font-weight: $base-font-weight + 400;
+  line-height: 1.8;
+  margin: 0;
+  text-transform: inherit;
+  @include brand-light-to-dark();
+}
+
 @mixin border() {
   border-color: $brand-color-light;
   border-radius: 5px;
@@ -90,18 +99,43 @@ body {
   }
 }
 
-h1,
+h1 
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: fonts.$base-heading-font;
-  font-weight: $base-font-weight + 400;
-  line-height: 1.8;
-  margin: 0;
-  text-transform: inherit;
-  @include brand-light-to-dark();
+
+}
+
+h1 {
+  font-size: fonts.$base-font-size * 2;
+  @include headings();
+}
+
+h2 {
+  font-size: fonts.$base-font-size * 1.5;
+  @include headings();
+}
+
+h3 {
+  font-size: fonts.$base-font-size * 1.25;
+  @include headings();
+}
+
+h4 {
+  font-size: fonts.$base-font-size * 1.1;
+  @include headings();
+}
+
+h5 {
+  font-size: fonts.$base-font-size;
+  @include headings();
+}
+
+h6 {
+  font-size: fonts.$base-font-size * 0.9;
+  @include headings();
 }
 
 a {
@@ -250,12 +284,19 @@ ul.posts {
 
 }
 
-li.post-item {
-    margin-bottom: 0.8em;
-  }
+.post-item {
+  font-size: fonts.$base-font-size;
+  font-weight: $base-font-weight;
+ }
+
+.post-date {
+  font-family: fonts.$base-code-font;
+  @include brand-light-to-dark();
+  font-size: fonts.$base-font-size * 0.9;
+  font-weight: $base-font-weight - 100;
+}
 
 .post-headline {
-    font-size: 1.7em;
     @include media-query($on-palm) {
       font-size: 1.3em;
     }
