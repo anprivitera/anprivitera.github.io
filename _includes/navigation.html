@@ -1,5 +1,5 @@
 <nav class="navbar">
-<a href="/" {% if page.url == "/" %}class="active"{% endif %}>About</a>
+<a href="/" {% if page.url == "/" %}class="active"{% endif %}><i class="fa-solid fa-user"></i> About</a>
         {% assign sorted_pages = site.pages | sort: 'priority' %}
         {% for p in sorted_pages %}
                 {% if p.path contains '_pages' %}
