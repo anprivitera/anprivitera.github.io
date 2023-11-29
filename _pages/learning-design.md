@@ -1,7 +1,7 @@
 ---
-title: Education/EdTech
+title: <i class="fas fa-graduation-cap"></i> Edu/EdTech
 layout: default
-permalink: /learning-design/
+permalink: /education/
 published: true
 priority: 2
 ---
