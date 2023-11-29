@@ -193,8 +193,8 @@ nav {
   font-family: fonts.$base-heading-font;
 
   .active {
-    color: $brand-color-light;
     font-weight: $base-font-weight;
+    @include brand-light-to-dark()
   }
   @include brand-light-to-dark();
   a {
