@@ -100,12 +100,13 @@ body {
 }
 
 h1 {
-  font-size: fonts.$base-font-size * 2;
+  font-size: fonts.$base-font-size * 2.3;
   @include headings();
+  text-align: center;
 }
 
 h2 {
-  font-size: fonts.$base-font-size * 1.5;
+  font-size: fonts.$base-font-size * 1.3;
   @include headings();
 }
 
@@ -214,7 +215,8 @@ blockquote {
 }
 
 nav {
-  // Avoid changing the layout when hoveing over the links (temporary solution)
+  
+  // Avoid changing the layout when hoveing over the links
   display: grid;
   gap: none;
   width: 90%;
@@ -288,13 +290,15 @@ ul.posts {
 }
 
 .post-headline {
+  text-align: center;
     @include media-query($on-palm) {
       font-size: 1.3em;
     }
 }
 
 .post-description {
-    font-size: 0.9em;
+    text-align: center;
+    font-size: fonts.$base-font-size * 1.2;
     font-style: italic;
     font-weight: $base-font-weight - 100;
     margin-bottom: -0.9em;
@@ -305,6 +309,7 @@ ul.posts {
 
 
   .meta {
+    text-align: center;
     color: $brand-color-light;
     @media (prefers-color-scheme: dark) {
       color: $brand-color-dark;
@@ -326,7 +331,11 @@ ul.posts {
     background-color: $body-accent-bg-dark;
     color: $text-color-dark;
   }
-  }
+}
+
+.feedbox {
+  text-align: center;
+}
 
 
   /* Button */
