@@ -2,9 +2,8 @@
 --- 
 // Front matter is mandatory for Jekyll to process this file.
 
-// Width of the content area
 @use '_sass/fonts';
-@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&family=Karla&family=Rubik&display=swap');
+
 
 $content-width: 800px;
 $on-phone: 450px;
@@ -12,9 +11,9 @@ $on-palm: 660px;
 $on-laptop: 1000px;
 
 
-$base-font-size: 19px;
+
 $base-font-weight: 400;
-$small-font-size: $base-font-size * 0.875;
+$small-font-size: fonts.$base-font-size * 0.875;
 $base-line-height: 1.7;
 
 $spacing-unit: 30px;
@@ -78,7 +77,7 @@ body {
   font-family: fonts.$base-body-font;
   margin: 0 auto;
   line-height: $base-line-height;
-  font-size: $base-font-size;
+  font-size: fonts.$base-font-size;
   padding: 2em 1em;
   text-rendering: optimizeLegibility;
   height: 100%;
@@ -98,7 +97,7 @@ h4,
 h5,
 h6 {
   font-family: fonts.$base-heading-font;
-  font-weight: bold;
+  font-weight: $base-font-weight + 400;
   line-height: 1.8;
   margin: 0;
   text-transform: inherit;
@@ -106,13 +105,14 @@ h6 {
 }
 
 a {
-  font-weight: bolder;
+  font-weight: $base-font-weight + 100;
   text-decoration: none;
   @include link-light-to-dark();
   
 
   &:hover {
     @include brand-light-to-dark();
+    font-weight: $base-font-weight;
   }
 }
 
@@ -192,7 +192,7 @@ blockquote {
     margin-right: 2rem;
     @include media-query($on-palm) {
       margin-right: 0.5rem;
-      font-size: $base-font-size * 0.7;
+      font-size: fonts.$base-font-size * 0.7;
     }
   }
 
@@ -221,7 +221,7 @@ ul.posts {
   }
   small {
         color: $brand-color-light;
-        font-size: $base-font-size * 0.8;
+        font-size: fonts.$base-font-size * 0.8;
     
         @media (prefers-color-scheme: dark) {
           color: $brand-color-dark;
@@ -244,6 +244,7 @@ li.post-item {
 .post-description {
     font-size: 0.9em;
     font-style: italic;
+    font-weight: $base-font-weight - 100;
     margin-bottom: -0.9em;
     @include media-query($on-palm) {
       font-size: 0.7em;
@@ -403,7 +404,7 @@ pre.highlight {
 code {
   font-family: 'Fira Mono', monospace;
   color: $text-color-light;
-  font-size: $base-font-size * 0.8;
+  font-size: fonts.$base-font-size * 0.8;
 }
 
 .highlight,
