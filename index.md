@@ -17,5 +17,5 @@ My background is in language teaching. [I authored Italian language digital text
 
 I am also interested in gaming of all kinds. I enjoy board games, videogames and, above all, tabletop role-playing games (TTRPGs). 
 
-My other passions are media (film, TV, sci-fi/fantasy fiction), productivity and personal knowledge management.
+My other passions are media (film, TV, sci-fi/fantasy fiction), productivity and [personal knowledge management](/tags/pkms.html).
 
