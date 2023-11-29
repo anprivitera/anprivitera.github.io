@@ -1,5 +1,5 @@
 ---
-title: <i class="fas fa-graduation-cap"></i> Edu/EdTech
+title: <i class="fa-solid fa-graduation-cap"></i> Edu/EdTech
 layout: default
 permalink: /education/
 published: true
