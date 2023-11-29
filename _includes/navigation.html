@@ -1,8 +1,9 @@
 <nav class="navbar">
-        <a href="{{site.baseurl}}/">About</a>
-        <a href="{{site.baseurl}}/blog/">Blog</a>
-        <a href="{{site.baseurl}}/programming/">Programming</a>
-        <a href="{{site.baseurl}}/learning-design/">Learning Design</a>
-        <!-- <a href="{{site.baseurl}}/gaming/">Gaming</a>
-        <a href="{{site.baseurl}}/productivity/">Productivity</a> -->
+<a href="/" {% if page.url == "/" %}class="active"{% endif %}>About</a>
+        {% assign sorted_pages = site.pages | sort: 'priority' %}
+        {% for p in sorted_pages %}
+                {% if p.path contains '_pages' %}
+                        <a href="{{ p.url | prepend: site.baseurl | prepend: site.url }}" {% if p.url == page.url %}class="active"{% endif %}>{{ p.title }}</a>
+                {% endif %}
+        {% endfor %}
 </nav>
