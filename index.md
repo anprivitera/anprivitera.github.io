@@ -13,7 +13,7 @@ I'm a **web developer**, **learning designer** and **gaming enthusiast** based i
 
 My current programming focus is on [JavaScript](/tags/javascript.html), React and [NextJS](/tags/nextjs.html). [Check out my programming projects here](/programming/). I'm also sharing my knowledge and learnings [on my blog](/tags/programming.html). 
 
-My background is in language teaching. [I've authored Italian language digital textbooks and online courses](/learning/) that encourage learners to develop their own curiosity and agency. 
+My background is in language teaching. [I authored Italian language digital textbooks and online courses](/learning-design/) that encourage learners to develop their own curiosity and agency. 
 
 <!-- Add tags when there are more posts about these topics -->
 
