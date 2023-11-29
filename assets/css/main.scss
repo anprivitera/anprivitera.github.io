@@ -105,14 +105,12 @@ h6 {
 }
 
 a {
-  font-weight: $base-font-weight + 100;
   text-decoration: none;
   @include link-light-to-dark();
   
 
   &:hover {
     @include brand-light-to-dark();
-    font-weight: $base-font-weight;
   }
 }
 
@@ -185,14 +183,25 @@ blockquote {
     }
 }
 
-.navbar { 
+nav {
+  // Avoid changing the layout when hoveing over the links (temporary solution)
+  display: grid;
+  gap: none;
+  width: 90%;
+  grid-template-columns: 0.2fr 0.2fr 0.3fr 0.4fr;
   font-family: fonts.$base-heading-font;
+
+
   @include brand-light-to-dark();
   a {
     margin-right: 2rem;
+    font-weight: $base-font-weight + 100;
     @include media-query($on-palm) {
       margin-right: 0.5rem;
       font-size: fonts.$base-font-size * 0.7;
+    }
+    &:hover {
+      font-weight: $base-font-weight;
     }
   }
 
