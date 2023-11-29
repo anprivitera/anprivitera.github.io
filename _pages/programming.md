@@ -1,12 +1,12 @@
 ---
-title: WebDev
+title: <i class="fa-solid fa-code"></i> WebDev
 layout: default
-permalink: /programming/
+permalink: /webdev/
 published: true
 priority: 1
 ---
 
-<h1>Programming Projects</h1>
+<h1>Web Development Projects</h1>
 
 <div class="ProjectContainer">
 
