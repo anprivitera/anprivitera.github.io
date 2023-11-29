@@ -1,33 +1,941 @@
-// ---
-// # Only the main Sass file needs front matter (the dashes are enough)
-// ---
+--- 
+--- 
+// Front matter is mandatory for Jekyll to process this file.
+
+// Width of the content area
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&family=Karla&family=Rubik&display=swap');
+
+$content-width: 800px;
+$on-phone: 450px;
+$on-palm: 660px;
+$on-laptop: 1000px;
+
+$base-body-font: 'Karla', sans-serif;
+$base-heading-font: 'Rubik', sans-serif;
+$base-font-size: 19px;
+$base-font-weight: 400;
+$small-font-size: $base-font-size * 0.875;
+$base-line-height: 1.7;
+
+$spacing-unit: 30px;
 
 
-// @charset "utf-8";
 
-// // Width of the content area
-// $content-width:    800px;
-// $on-phone:         450px;
-// $on-palm:          660px;
-// $on-laptop:        1000px;
 
-// @mixin media-query($device) {
-//     @media screen and (max-width: $device) {
-//         @content;
-//     }
-// }
+// Color scheme for light
+$body-bg-light: #fdfdfd;
+$text-color-light: #333;
+$link-color-light: #AF5D63;
+$brand-color-light: #284178;
+$body-accent-bg-light: darken($body-bg-light, 3%);
 
-// // Import partials from `sass_dir` (defaults to `_sass`)
-// // Do not make any changes to this file. Go to /_sass and find the appropriate SCSS file and make changes there.
 
-// // JN: For now, split @import to anable conditional import of CSS. Also. @import may be deprecated soon so plan
-// // for this change
+// Color scheme for dark modes
+$body-bg-dark: #23272d;
+$text-color-dark: #ffffff;
+$link-color-dark: #D6A9AD;
+$brand-color-dark: #9FB8DF;
+$body-accent-bg-dark: lighten($body-bg-dark, 7%);
 
-// @import 'variables';
-// @import 'footer-social';
-// @import 'projects';
-// @import 'profile';
-// @import 'footer';
-// @import 'style';
-// @import 'google-fonts';
-// @import 'syntax-highlighting';
+
+
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin link-light-to-dark() {
+  color: $link-color-light;
+  @media (prefers-color-scheme: dark) {
+    color: $link-color-dark;
+  }
+}
+
+@mixin brand-light-to-dark() {
+  color: $brand-color-light;
+  @media (prefers-color-scheme: dark) {
+    color: $brand-color-dark;
+  }
+}
+
+@mixin border() {
+  border-color: $brand-color-light;
+  border-radius: 5px;
+  @media (prefers-color-scheme: dark) {
+  border-color: $brand-color-dark;
+  }
+  border-style: solid;
+  border-width: 0.1rem;
+}
+
+
+
+body {
+  max-width: $content-width;
+  font-family: $base-body-font;
+  margin: 0 auto;
+  line-height: $base-line-height;
+  font-size: $base-font-size;
+  padding: 2em 1em;
+  text-rendering: optimizeLegibility;
+  height: 100%;
+  background-color: $body-bg-light;
+  color: $text-color-light;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: $body-bg-dark;
+    color: $text-color-dark;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $base-heading-font;
+  font-weight: bold;
+  line-height: 1.8;
+  margin: 0;
+  text-transform: inherit;
+  @include brand-light-to-dark();
+}
+
+a {
+  font-weight: bolder;
+  text-decoration: none;
+  @include link-light-to-dark();
+  
+
+  &:hover {
+    @include brand-light-to-dark();
+  }
+}
+
+img {
+  max-width: 100%;
+  @include border();
+}
+
+img.emoji {
+  border: none;
+}
+
+// /* Profile */
+.profile {
+    @include border();
+    margin-top: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 1px;
+    border-radius: 8%;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+// adjust tile sizes on smaller screens
+@include media-query($on-phone) {
+  @media screen and (max-width: $on-phone){
+
+    .profile {
+      width: 40%;
+    }
+
+  }
+}
+
+
+pre {
+  background-color: $body-accent-bg-light;
+  @media (prefers-color-scheme: dark) {
+    background-color: $body-accent-bg-dark;
+  }
+  padding: 5px;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  @include border();
+}
+
+blockquote {
+  padding-left: 1rem;
+  @include brand-light-to-dark();
+};
+
+
+.blog-headline {
+    @include brand-light-to-dark();
+    font-family: $base-heading-font;
+    font-weight: bold;
+    font-size: 1.3em;
+    @include media-query($on-palm) {
+      font-size: 1em;
+    }
+}
+
+.navbar { 
+  font-family: $base-heading-font;
+  @include brand-light-to-dark();
+  a {
+    margin-right: 2rem;
+    @include media-query($on-palm) {
+      margin-right: 0.5rem;
+      font-size: $base-font-size * 0.7;
+    }
+  }
+
+}
+
+.article-list {
+    margin: 1em 0;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+
+ul.posts {
+  
+  div {
+    color: $brand-color-light;
+    font-size: larger;
+    margin-top: -0.5em;
+
+    @media (prefers-color-scheme: dark) {
+      color: $text-color-dark;
+    }
+  }
+  small {
+        color: $brand-color-light;
+        font-size: $base-font-size * 0.8;
+    
+        @media (prefers-color-scheme: dark) {
+          color: $brand-color-dark;
+        }
+      }
+
+}
+
+li.post-item {
+    margin-bottom: 0.8em;
+  }
+
+.post-headline {
+    font-size: 1.7em;
+    @include media-query($on-palm) {
+      font-size: 1.3em;
+    }
+}
+
+.post-description {
+    font-size: 0.9em;
+    font-style: italic;
+    margin-bottom: -0.9em;
+    @include media-query($on-palm) {
+      font-size: 0.7em;
+    }
+  }
+
+
+  .meta {
+    color: $brand-color-light;
+    @media (prefers-color-scheme: dark) {
+      color: $brand-color-dark;
+    }
+  }
+
+// https://digitaldrummerj.me/blogging-on-github-part-13-creating-an-article-series/
+
+.series-panel {
+  padding: 20px;
+  margin: auto;
+  font-size: 75%;
+  // text-align: center;
+  background-color: $body-accent-bg-light;
+  @include border();
+  max-width: 55%;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: $body-accent-bg-dark;
+    color: $text-color-dark;
+  }
+  }
+
+
+  /* Button */
+button {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 13px 23px;
+    border: 1px solid;
+    background: $brand-color-light;
+    color: $body-bg-light;
+
+    @media (prefers-color-scheme: dark) {
+      background: $brand-color-dark;
+      color: $body-bg-dark;
+    }
+
+    &:hover {
+      background: $link-color-light;
+
+      @media (prefers-color-scheme: dark) {
+        background: $link-color-dark;
+      }
+    }
+}
+
+
+
+/* Social Icons for Footer from https://codepen.io/deutschland2k/pen/qKpdJX */
+
+
+
+iframe {
+  width: 100%;
+  height: 360px;
+
+  @include media-query($on-laptop) {
+    height: 300px;
+  }
+
+  @include media-query($on-palm) {
+    height: 180px;
+  }
+}
+
+  /* Horizontal Divider */
+  .divider {
+    @include brand-light-to-dark();
+    margin: 1em;
+  }
+
+  .rounded-social-buttons {
+    text-align: center;
+  
+  
+    .social-button {
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+      width: 2.125rem;
+      height: 2.125rem;
+      border: 0.125rem solid $link-color-light;
+      padding: 0;
+      text-decoration: none;
+      text-align: center;
+      color: $link-color-light;
+      font-size: 1.5625rem;
+      font-weight: normal;
+      line-height: 1.5em;
+      border-radius: 1.6875rem;
+      transition: all 0.5s ease;
+      margin-right: 0.25rem;
+      margin-bottom: 0.25rem;
+  
+      @media (prefers-color-scheme: dark) {
+        border: 0.125rem solid $link-color-dark;
+        color: $link-color-dark;
+      }
+        &:hover {
+      color: $body-bg-light;
+      background-color: $brand-color-light;
+      border-color: $brand-color-light;
+  
+      @media (prefers-color-scheme: dark) {
+        background-color: $brand-color-dark;
+        border-color: $brand-color-dark;
+        color: $body-bg-dark; 
+        }
+      }
+    }
+  };
+
+  // /* Footer */
+footer {
+    clear: both;
+    margin-top: 2em;
+}
+/* Footer navigation links */
+
+.copy {
+    margin: 2%;
+    color: $text-color-light;
+    @media (prefers-color-scheme: dark) {
+        color: $text-color-dark;
+    }
+    text-align: center;
+    font-size: small;
+}
+
+// include a hamburger menu for mobile
+// https://codepen.io/erikterwan/pen/EVzeRP
+
+// Syntax Highlighting
+//For light mode
+pre.highlight {
+  padding: 7px 7px 7px 10px;
+  margin: 20px 0 20px 0;
+  overflow: auto;
+}
+
+code {
+  font-family: 'Fira Mono', monospace;
+  color: $text-color-light;
+  font-size: $base-font-size * 0.8;
+}
+
+.highlight,
+.highlight .w {
+  color: #586e75;
+}
+
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+
+.highlight .c,
+.highlight .cd,
+.highlight .cm,
+.highlight .c1,
+.highlight .cs {
+  color: #657b83;
+}
+
+.highlight .cp {
+  color: #b58900;
+}
+
+.highlight .nt {
+  color: #b58900;
+}
+
+.highlight .o,
+.highlight .ow {
+  color: #93a1a1;
+}
+
+.highlight .p,
+.highlight .pi {
+  color: #93a1a1;
+}
+
+.highlight .gi {
+  color: #859900;
+}
+
+.highlight .gd {
+  color: #dc322f;
+}
+
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+
+.highlight .k,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kv {
+  color: #6c71c4;
+}
+
+.highlight .kc {
+  color: #cb4b16;
+}
+
+.highlight .kt {
+  color: #cb4b16;
+}
+
+.highlight .kd {
+  color: #cb4b16;
+}
+
+.highlight .s,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .s2,
+.highlight .sh,
+.highlight .sx,
+.highlight .s1 {
+  color: #859900;
+}
+
+.highlight .sr {
+  color: #2aa198;
+}
+
+.highlight .si {
+  color: #d33682;
+}
+
+.highlight .se {
+  color: #d33682;
+}
+
+.highlight .nn {
+  color: #b58900;
+}
+
+.highlight .nc {
+  color: #b58900;
+}
+
+.highlight .no {
+  color: #b58900;
+}
+
+.highlight .na {
+  color: #268bd2;
+}
+
+.highlight .m,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .il,
+.highlight .mo,
+.highlight .mb,
+.highlight .mx {
+  color: #859900;
+}
+
+.highlight .ss {
+  color: #859900;
+}
+
+// For dark mode
+@media (prefers-color-scheme: dark) {
+
+  pre.highlight {
+    background-color: $body-accent-bg-dark;
+    padding: 7px 7px 7px 10px;
+    margin: 20px 0 20px 0;
+    overflow: auto;
+  }
+
+  code {
+    font-family: 'Fira Mono', monospace;
+    color: $text-color-dark;
+  }
+
+  .highlight .c,
+  .highlight .cd {
+    color: #75715e;
+    font-style: italic;
+  }
+
+  .highlight .cm {
+    color: #75715e;
+    font-style: italic;
+  }
+
+  .highlight .c1 {
+    color: #75715e;
+    font-style: italic;
+  }
+
+  .highlight .cp {
+    color: #75715e;
+    font-weight: bold;
+  }
+
+  .highlight .cs {
+    color: #75715e;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  .highlight .err {
+    color: #960050;
+    background-color: #1e0010;
+  }
+
+  .highlight .gi {
+    color: #ffffff;
+    background-color: #324932;
+  }
+
+  .highlight .gd {
+    color: #ffffff;
+    background-color: #493131;
+  }
+
+  .highlight .ge {
+    color: #000000;
+    font-style: italic;
+  }
+
+  .highlight .gr {
+    color: #aa0000;
+  }
+
+  .highlight .gt {
+    color: #aa0000;
+  }
+
+  .highlight .gh {
+    color: #999999;
+  }
+
+  .highlight .go {
+    color: #888888;
+  }
+
+  .highlight .gp {
+    color: #555555;
+  }
+
+  .highlight .gs {
+    font-weight: bold;
+  }
+
+  .highlight .gu {
+    color: #aaaaaa;
+  }
+
+  .highlight .k,
+  .highlight .kv {
+    color: #66d9ef;
+    font-weight: bold;
+  }
+
+  .highlight .kc {
+    color: #66d9ef;
+    font-weight: bold;
+  }
+
+  .highlight .kd {
+    color: #66d9ef;
+    font-weight: bold;
+  }
+
+  .highlight .kp {
+    color: #66d9ef;
+    font-weight: bold;
+  }
+
+  .highlight .kr {
+    color: #66d9ef;
+    font-weight: bold;
+  }
+
+  .highlight .kt {
+    color: #66d9ef;
+    font-weight: bold;
+  }
+
+  .highlight .kn {
+    color: #f92672;
+    font-weight: bold;
+  }
+
+  .highlight .ow {
+    color: #f92672;
+    font-weight: bold;
+  }
+
+  .highlight .o {
+    color: #f92672;
+    font-weight: bold;
+  }
+
+  .highlight .mf {
+    color: #ae81ff;
+  }
+
+  .highlight .mh {
+    color: #ae81ff;
+  }
+
+  .highlight .il {
+    color: #ae81ff;
+  }
+
+  .highlight .mi {
+    color: #ae81ff;
+  }
+
+  .highlight .mo {
+    color: #ae81ff;
+  }
+
+  .highlight .m,
+  .highlight .mb,
+  .highlight .mx {
+    color: #ae81ff;
+  }
+
+  .highlight .se {
+    color: #ae81ff;
+  }
+
+  .highlight .sb {
+    color: #e6db74;
+  }
+
+  .highlight .sc {
+    color: #e6db74;
+  }
+
+  .highlight .sd {
+    color: #e6db74;
+  }
+
+  .highlight .s2 {
+    color: #e6db74;
+  }
+
+  .highlight .sh {
+    color: #e6db74;
+  }
+
+  .highlight .si {
+    color: #e6db74;
+  }
+
+  .highlight .sx {
+    color: #e6db74;
+  }
+
+  .highlight .sr {
+    color: #e6db74;
+  }
+
+  .highlight .s1 {
+    color: #e6db74;
+  }
+
+  .highlight .ss {
+    color: #e6db74;
+  }
+
+  .highlight .s {
+    color: #e6db74;
+  }
+
+  .highlight .na {
+    color: #a6e22e;
+  }
+
+  .highlight .nc {
+    color: #a6e22e;
+    font-weight: bold;
+  }
+
+  .highlight .nd {
+    color: #a6e22e;
+    font-weight: bold;
+  }
+
+  .highlight .ne {
+    color: #a6e22e;
+    font-weight: bold;
+  }
+
+  .highlight .nf {
+    color: #a6e22e;
+    font-weight: bold;
+  }
+
+  .highlight .no {
+    color: #66d9ef;
+  }
+
+  .highlight .bp {
+    color: #f8f8f2;
+  }
+
+  .highlight .nb {
+    color: #f8f8f2;
+  }
+
+  .highlight .ni {
+    color: #f8f8f2;
+  }
+
+  .highlight .nn {
+    color: #f8f8f2;
+  }
+
+  .highlight .vc {
+    color: #f8f8f2;
+  }
+
+  .highlight .vg {
+    color: #f8f8f2;
+  }
+
+  .highlight .vi {
+    color: #f8f8f2;
+  }
+
+  .highlight .nv {
+    color: #f8f8f2;
+  }
+
+  .highlight .w {
+    color: #f8f8f2;
+  }
+
+  .highlight .nl {
+    color: #f8f8f2;
+    font-weight: bold;
+  }
+
+  .highlight .nt {
+    color: #f92672;
+  }
+
+  .highlight {
+    color: #f8f8f2;
+    background-color: #49483e;
+  }
+
+}
+
+.ProjectContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  /* Compensate for excess margin on outer gallery flex items */
+  margin: -1rem -1rem;
+}
+
+.projectTile {
+  /* Minimum width of 200px and grow to fit available space */
+  flex: 1 0 200px;
+  border-radius: 15px;
+  background: $projectbox;
+  @media (prefers-color-scheme: dark) {
+    background: $projectbox;
+  }
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  display: table;
+}
+
+.projectTile a {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+}
+
+.projectTile a span {
+  display: flex;
+  justify-content: center;
+}
+
+.projectTile a span h2 {
+  font-size: 1.5rem;
+  padding: 1rem;
+  color: $projectbox-text;
+}
+
+.projectTile:hover a span h2 {
+  display: none;
+}
+
+.projectTile a span p {
+  display: none;
+}
+
+.projectTile:hover a span p {
+  font-size: 1.2rem;
+  display: flex;
+  padding: 1rem;
+  color: $projectbox-text;
+}
+
+@include media-query($on-phone) {
+  @media screen and (max-width: $on-phone){
+
+    .projectTile {
+      height: 80px;
+    }
+
+    .projectTile a span h2 {
+      font-size: 1.2rem;
+    }
+
+    .projectTile:hover a span p {
+      display: none;
+    }
+
+    .projectTile:hover a span h2 {
+      display: flex;
+    }
+
+
+  }
+}
+
+@include media-query($on-palm) {
+  @media screen and (max-width: $on-palm){
+
+    .projectTile {
+      height: 100px;
+    }
+
+    .projectTile a span h2 {
+      font-size: 1.3rem;
+    }
+
+    .projectTile:hover a span p {
+      display: none;
+    }
+
+    .projectTile:hover a span h2 {
+      display: flex;
+    }
+
+  }
+}
+
+
+@supports (display: grid) {
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 2rem;
+  }
+
+  .gallery,
+  .gallery-item {
+    margin: 0;
+  }
+}
+
+//Based on: https://codepen.io/GeorgePark/pen/vdqYom
