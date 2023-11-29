@@ -1,8 +1,9 @@
 ---
-title: Learning Projects
+title: Education/EdTech
 layout: default
 permalink: /learning-design/
 published: true
+priority: 2
 ---
 
 # Learning Design Projects
