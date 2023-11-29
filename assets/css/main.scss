@@ -357,7 +357,7 @@ button {
         background: $link-color-dark;
       }
     &:active {
-      font-weight: $base-font-weight - 100;
+      font-weight: $base-font-weight + 200;
 
     }
     }
