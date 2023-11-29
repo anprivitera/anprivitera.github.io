@@ -189,10 +189,13 @@ nav {
   display: grid;
   gap: none;
   width: 90%;
-  grid-template-columns: 0.2fr 0.2fr 0.3fr 0.4fr;
+  grid-template-columns: 0.2fr 0.2fr 0.3fr 0.3fr;
   font-family: fonts.$base-heading-font;
 
-
+  .active {
+    color: $brand-color-light;
+    font-weight: $base-font-weight;
+  }
   @include brand-light-to-dark();
   a {
     margin-right: 2rem;
@@ -201,9 +204,12 @@ nav {
       margin-right: 0.5rem;
       font-size: fonts.$base-font-size * 0.7;
     }
+
     &:hover {
       font-weight: $base-font-weight;
     }
+
+  
   }
 
 }
