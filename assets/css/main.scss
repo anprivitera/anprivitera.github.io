@@ -3,7 +3,7 @@
 // Front matter is mandatory for Jekyll to process this file.
 
 // Width of the content area
-
+@use '_sass/fonts';
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono&family=Karla&family=Rubik&display=swap');
 
 $content-width: 800px;
@@ -11,8 +11,7 @@ $on-phone: 450px;
 $on-palm: 660px;
 $on-laptop: 1000px;
 
-$base-body-font: 'Karla', sans-serif;
-$base-heading-font: 'Rubik', sans-serif;
+
 $base-font-size: 19px;
 $base-font-weight: 400;
 $small-font-size: $base-font-size * 0.875;
@@ -76,7 +75,7 @@ $body-accent-bg-dark: lighten($body-bg-dark, 7%);
 
 body {
   max-width: $content-width;
-  font-family: $base-body-font;
+  font-family: fonts.$base-body-font;
   margin: 0 auto;
   line-height: $base-line-height;
   font-size: $base-font-size;
@@ -98,7 +97,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $base-heading-font;
+  font-family: fonts.$base-heading-font;
   font-weight: bold;
   line-height: 1.8;
   margin: 0;
@@ -178,7 +177,7 @@ blockquote {
 
 .blog-headline {
     @include brand-light-to-dark();
-    font-family: $base-heading-font;
+    font-family: fonts.$base-heading-font;
     font-weight: bold;
     font-size: 1.3em;
     @include media-query($on-palm) {
@@ -187,7 +186,7 @@ blockquote {
 }
 
 .navbar { 
-  font-family: $base-heading-font;
+  font-family: fonts.$base-heading-font;
   @include brand-light-to-dark();
   a {
     margin-right: 2rem;
