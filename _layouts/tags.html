@@ -4,11 +4,11 @@ layout: default
 
 <h1><i class="fa fa-tag"></i> {{ page.tag-name }}</h1>
 <div class="post">
-    <small class="feedbox">
+    <h2 class="feedbox">
         <a href="/feeds/{{ page.tag-name}}.xml">
             <i class="fa fa-rss"></i> Follow the <strong>{{ page.tag-name }}</strong> feed 
         </a>
-    </small>
+    </h2>
     <div>
         {% assign date = '' %}
         {% for post in site.posts %}
