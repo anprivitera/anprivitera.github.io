@@ -10,7 +10,7 @@ $on-phone: 450px;
 $on-palm: 660px;
 $on-laptop: 1000px;
 
-$base-font-weight: 400;
+
 $small-font-size: fonts.$base-font-size * 0.875;
 $base-line-height: 1.7;
 
@@ -55,7 +55,7 @@ $body-accent-bg-dark: lighten($body-bg-dark, 7%);
 
 @mixin headings(){
   font-family: fonts.$base-heading-font;
-  font-weight: $base-font-weight + 400;
+  font-weight: fonts.$base-font-weight + 400;
   line-height: 1.8;
   margin: 0;
   text-transform: inherit;
@@ -125,7 +125,7 @@ h6 {
 
 a {
   text-decoration: none;
-  font-weight: $base-font-weight + 100;
+  font-weight: fonts.$base-font-weight + 100;
   @include link-light-to-dark();
   
 
@@ -217,20 +217,20 @@ nav {
   font-family: fonts.$base-heading-font;
 
   .active {
-    font-weight: $base-font-weight;
+    font-weight: fonts.$base-font-weight;
     @include brand-light-to-dark()
   }
   @include brand-light-to-dark();
   a {
     margin-right: 2rem;
-    font-weight: $base-font-weight + 100;
+    font-weight: fonts.$base-font-weight + 100;
     @include media-query($on-palm) {
       margin-right: 0.5rem;
       font-size: fonts.$base-font-size * 0.7;
     }
 
     &:hover {
-      font-weight: $base-font-weight;
+      font-weight: fonts.$base-font-weight;
     }
 
   
@@ -272,14 +272,14 @@ ul.posts {
 
 .post-item {
   font-size: fonts.$base-font-size;
-  font-weight: $base-font-weight;
+  font-weight: fonts.$base-font-weight;
  }
 
 .post-date {
   font-family: fonts.$base-code-font;
   @include brand-light-to-dark();
   font-size: fonts.$base-font-size * 0.9;
-  font-weight: $base-font-weight - 100;
+  font-weight: fonts.$base-font-weight - 100;
 }
 
 .post-headline {
@@ -293,7 +293,7 @@ ul.posts {
     text-align: center;
     font-size: fonts.$base-font-size * 1.2;
     font-style: italic;
-    font-weight: $base-font-weight - 100;
+    font-weight: fonts.$base-font-weight - 100;
     margin-bottom: -0.9em;
     @include media-query($on-palm) {
       font-size: 0.7em;
@@ -340,7 +340,7 @@ button {
     cursor: pointer;
     font-size: 16px;
     line-height: 20px;
-    font-weight: $base-font-weight;
+    font-weight: fonts.$base-font-weight;
     border-radius: 8px;
     padding: 13px 23px;
     border: 1px solid;
@@ -359,7 +359,7 @@ button {
         background: $link-color-dark;
       }
     &:active {
-      font-weight: $base-font-weight + 200;
+      font-weight: fonts.$base-font-weight + 200;
 
     }
     }
